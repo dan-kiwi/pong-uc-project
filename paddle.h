@@ -1,9 +1,15 @@
-#ifndef GAME_H
-#define GAME_H
+#ifndef PADDLE_H
+#define PADDLE_H
 
 #include <stdint.h>
 #include <stdbool.h>
 #include "game.h"
+
+#define START_LEFT 1
+#define START_RIGHT 2
+#define LEFT_MAX 0
+#define RIGHT_MAX 6
+#define PADDLE_ROW 0
 
 typedef struct
 {
@@ -16,7 +22,7 @@ Paddle_t paddle;
 /*
  * Initialises the paddle
  */
-void paddle_int (void);
+void paddle_init (void);
 
 /*
  * Moves the paddle by incrementing or decrementing the col value
