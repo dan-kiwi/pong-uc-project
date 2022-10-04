@@ -9,9 +9,9 @@ typedef struct
 {
     uint8_t left;
     uint8_t right;
-} paddle_t;
+} Paddle_t;
 
-paddle_t paddle;
+Paddle_t paddle;
 
 /*
  * Initialises the paddle
