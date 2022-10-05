@@ -42,17 +42,3 @@ void paddle_draw (void)
     tinygl_point_t right = tinygl_point(PADDLE_ROW, paddle.right);
     tinygl_draw_line(left, right, true);
 }
-
-/*
- * Checks to see if the ball is colliding with the paddle
- * @param the ball in the game
- * @return boolean whether the ball collides
- */
-//bool ball_on_paddle (Ball_t ball)
-//{
-//    if (ball.row == PADDLE_ROW) {
-//        if (ball.col == paddle.left || ball.col == paddle.right)
-//            return true;
-//    }
-//    return false;
-//}
