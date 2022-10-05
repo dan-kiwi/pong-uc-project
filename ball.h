@@ -3,19 +3,13 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include "game.h"
 
 #define PADDLE_BOUNCE_ROW PADDLE_ROW - 1
 #define COLUMN_START 4
 #define ROW_START 1
 #define BALL_RIGHT false
 #define BALL_FORWARD false
-
-typedef struct {
-    uint8_t row;
-    uint8_t column;
-    bool right;
-    bool forward;
-} Ball_t;
 
 Ball_t ball;
 

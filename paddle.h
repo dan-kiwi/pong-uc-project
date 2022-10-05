@@ -9,11 +9,7 @@
 #define START_RIGHT 2
 #define PADDLE_ROW BOTTOM_MAX
 
-typedef struct
-{
-    uint8_t left;
-    uint8_t right;
-} Paddle_t;
+
 
 Paddle_t paddle;
 
