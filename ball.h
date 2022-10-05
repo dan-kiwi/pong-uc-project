@@ -12,4 +12,10 @@ typedef struct {
 
 Ball_t ball;
 
+void ball_init (void);
+
+void ball_draw (void);
+
+
+
 #endif

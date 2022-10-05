@@ -5,6 +5,7 @@
 //#include "ir_uart.h"
 #include "paddle.h"
 #include "pacer.h"
+#include "ball.h"
 
 int main (void)
 {
@@ -14,6 +15,7 @@ int main (void)
     navswitch_init();
 //    ir_uart_init();
     paddle_init();
+    ball_init();
 
 
     while (1)
@@ -25,5 +27,6 @@ int main (void)
 
         paddle_move();
         paddle_draw();
+        ball_draw();
     }
 }

@@ -16,7 +16,7 @@ all: game.out
 
 
 # Compile: create object files from C source files.
-game.o: game.c ../../drivers/avr/system.h game.h ../../utils/pacer.h ../../utils/tinygl.h ../../drivers/navswitch.h paddle.h
+game.o: game.c ../../drivers/avr/system.h game.h ../../utils/pacer.h ../../utils/tinygl.h ../../drivers/navswitch.h paddle.h ball.c
 	$(CC) -c $(CFLAGS) $< -o $@
 
 prescale.o: ../../drivers/avr/prescale.c ../../drivers/avr/prescale.h ../../drivers/avr/system.h
@@ -55,9 +55,11 @@ tinygl.o: ../../utils/tinygl.c ../../drivers/avr/system.h ../../drivers/display.
 paddle.o: paddle.c paddle.h game.h ../../utils/pacer.h ../../utils/tinygl.h ../../drivers/navswitch.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
+ball.o: ball.c ball.h ../../utils/tinygl.h
+
 
 # Link: create ELF output file from object files.
-game.out: game.o system.o timer.o prescale.o timer0.o usart1.o display.o ledmat.o navswitch.o font.o pacer.o tinygl.o paddle.o
+game.out: game.o system.o timer.o prescale.o timer0.o usart1.o display.o ledmat.o navswitch.o font.o pacer.o tinygl.o paddle.o ball.o
 	$(CC) $(CFLAGS) $^ -o $@ -lm
 	$(SIZE) $@
 
