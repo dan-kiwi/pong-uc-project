@@ -7,8 +7,6 @@
 
 #define START_LEFT 1
 #define START_RIGHT 2
-#define LEFT_MAX 0
-#define RIGHT_MAX 6
 #define PADDLE_ROW 0
 
 typedef struct
