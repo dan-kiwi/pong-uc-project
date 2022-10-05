@@ -9,24 +9,20 @@
 #define START_RIGHT 2
 #define PADDLE_ROW BOTTOM_MAX
 
-
-
-Paddle_t paddle;
-
 /*
  * Initialises the paddle
  */
-void paddle_init (void);
+void paddle_init (Paddle_t* paddle);
 
 /*
  * Moves the paddle by incrementing or decrementing the col value
  */
-void paddle_move (void);
+void paddle_move (Paddle_t* paddle);
 
 /*
  * Draws the paddle using the tinygl files
  */
-void paddle_draw (void);
+void paddle_draw (Paddle_t* paddle);
 
 /*
  * Checks to see if the ball is colliding with the paddle

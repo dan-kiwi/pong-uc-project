@@ -11,6 +11,9 @@
 
 uint16_t counter = 0;
 
+Ball_t ball;
+Paddle_t paddle;
+
 int main (void)
 {
     system_init ();
@@ -18,8 +21,8 @@ int main (void)
     pacer_init(PACER_RATE);
     navswitch_init();
 //    ir_uart_init();
-    paddle_init();
-    ball_init();
+    paddle_init(&paddle);
+    ball_init(&ball);
 
 
     while (1)
@@ -28,12 +31,12 @@ int main (void)
         navswitch_update ();
         tinygl_clear();
 
-        paddle_move();
-        paddle_draw();
-        ball_draw();
+        paddle_move(&paddle);
+        paddle_draw(&paddle);
+        ball_draw(&ball);
         if (counter >= 100) {
             counter = 0;
-            ball_move();
+            ball_move(&ball, paddle);
         }
 
         tinygl_update ();
