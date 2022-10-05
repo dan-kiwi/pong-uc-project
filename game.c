@@ -34,7 +34,6 @@ int main (void)
         if (counter >= 300) {
             counter = 0;
             ball_move();
-            hit_ball();
         }
 
         tinygl_update ();
