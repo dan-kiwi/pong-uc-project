@@ -19,7 +19,9 @@ int main (void)
     while (1)
     {
         pacer_wait();
+        paddle_move();
         paddle_draw();
+        tinygl_update();
 
 
     }

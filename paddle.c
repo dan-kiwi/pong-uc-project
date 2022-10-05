@@ -22,7 +22,7 @@ void paddle_init (void)
  */
 void paddle_move (void)
 {
-    if (navswitch_push_event_p (NAVSWITCH_SOUTH) && paddle.left != LEFT_MAX) {
+    if (navswitch_push_event_p (NAVSWITCH_SOUTH)) {
         paddle.left--;
         paddle.right--;
     }
@@ -48,11 +48,11 @@ void paddle_draw (void)
  * @param the ball in the game
  * @return boolean whether the ball collides
  */
-bool ball_on_paddle (Ball_t ball)
-{
-    if (ball.row == PADDLE_ROW) {
-        if (ball.col == paddle.left || ball.col == paddle.right)
-            return true;
-    }
-    return false;
-}
+//bool ball_on_paddle (Ball_t ball)
+//{
+//    if (ball.row == PADDLE_ROW) {
+//        if (ball.col == paddle.left || ball.col == paddle.right)
+//            return true;
+//    }
+//    return false;
+//}

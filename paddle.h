@@ -39,6 +39,6 @@ void paddle_draw (void);
  * @param the ball in the game
  * @return boolean whether the ball collides
  */
-bool ball_on_paddle (Ball_t ball);
+//bool ball_on_paddle (Ball_t ball);
 
 #endif
