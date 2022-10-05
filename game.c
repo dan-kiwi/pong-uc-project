@@ -18,11 +18,12 @@ int main (void)
 
     while (1)
     {
-        pacer_wait();
+        pacer_wait ();
+        tinygl_update ();
+        navswitch_update ();
+        tinygl_clear();
+
         paddle_move();
         paddle_draw();
-        tinygl_update();
-
-
     }
 }

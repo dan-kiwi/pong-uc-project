@@ -22,14 +22,14 @@ void paddle_init (void)
  */
 void paddle_move (void)
 {
-    if (navswitch_push_event_p (NAVSWITCH_SOUTH)) {
-        paddle.left--;
-        paddle.right--;
-    }
-
-    if (navswitch_push_event_p (NAVSWITCH_NORTH) && paddle.right != RIGHT_MAX) {
+    if (navswitch_push_event_p (NAVSWITCH_SOUTH) && paddle.right != RIGHT_MAX) {
         paddle.left++;
         paddle.right++;
+    }
+
+    if (navswitch_push_event_p (NAVSWITCH_NORTH) && paddle.left != LEFT_MAX) {
+        paddle.left--;
+        paddle.right--;
     }
 }
 
