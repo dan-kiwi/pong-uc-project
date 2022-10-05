@@ -7,6 +7,10 @@
 #include "pacer.h"
 #include "ball.h"
 
+#include <stdint.h>
+
+uint16_t counter = 0;
+
 int main (void)
 {
     system_init ();
@@ -21,12 +25,19 @@ int main (void)
     while (1)
     {
         pacer_wait ();
-        tinygl_update ();
         navswitch_update ();
         tinygl_clear();
 
         paddle_move();
         paddle_draw();
         ball_draw();
+        if (counter >= 300) {
+            counter = 0;
+            ball_move();
+            hit_ball();
+        }
+
+        tinygl_update ();
+        counter++;
     }
 }
