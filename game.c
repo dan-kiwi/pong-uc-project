@@ -31,7 +31,7 @@ int main (void)
         paddle_move();
         paddle_draw();
         ball_draw();
-        if (counter >= 300) {
+        if (counter >= 100) {
             counter = 0;
             ball_move();
         }

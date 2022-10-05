@@ -31,9 +31,9 @@ void ball_draw (void)
 void ball_move(void)
 {
     if (ball.forward)
-        ball.row++;
-    else
         ball.row--;
+    else
+        ball.row++;
 
     if (ball.right) {
         ball.column++;
@@ -49,6 +49,11 @@ void ball_move(void)
         if (ball.column <= LEFT_MAX) {
             ball.right = true;
         }
+    }
+
+    /* TODO Remove next three lines and add transmitting function */
+    if (ball.row == 0) {
+        ball.forward = false;
     }
     if (ball_at_paddle()) {
         ball.forward = true;

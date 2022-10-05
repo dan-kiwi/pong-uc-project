@@ -4,9 +4,9 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#define PADDLE_BOUNCE_ROW 1
+#define PADDLE_BOUNCE_ROW PADDLE_ROW - 1
 #define COLUMN_START 4
-#define ROW_START 3
+#define ROW_START 1
 #define BALL_RIGHT false
 #define BALL_FORWARD false
 
