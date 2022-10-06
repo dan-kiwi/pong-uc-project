@@ -6,30 +6,36 @@
 #include "game.h"
 #include "ir_uart.h"
 
+/*
+ * Initialises the ir sender/receiver
+ */
 void ir_init (void)
 {
     ir_uart_init ();
 }
 
-void send_ball(Ball_t* ball)
+/*
+ * Send the information of the ball through IR
+ * The LSB is whether the ball if traveling right
+ * The next three LSB's are the ball's column 0-6
+ */
+void send_ball (Ball_t* ball)
 {
-    while (!(ir_uart_write_ready_p())) {
-        continue;
-    }
-    ir_uart_putc(ball->column);
-    while (!(ir_uart_write_ready_p())) {
-        continue;
-    }
-    ir_uart_putc(ball->row);
+    char to_send = ball->column << 1 | ball->right;
+    ir_uart_putc(to_send);
 }
 
-void receive_ball(Ball_t* ball)
+/*
+ * Receives the information of the ball through IR
+ * The LSB is whether the ball if traveling right
+ * The next three LSB's are the ball's column 0-6
+ */
+void receive_ball (Ball_t* ball)
 {
+    char received;
     if (ir_uart_read_ready_p()) {
-        ball->column = ir_uart_getc();
-        while (!(ir_uart_read_ready_p())) {
-            continue;
-        }
-        ball->row = ir_uart_getc();
+        received = ir_uart_getc();
     }
+    ball->right = received & 1;
+    ball->column = received >> 1;
 }
