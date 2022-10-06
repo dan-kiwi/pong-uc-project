@@ -52,10 +52,11 @@ pacer.o: ../../utils/pacer.c ../../drivers/avr/system.h ../../drivers/avr/timer.
 tinygl.o: ../../utils/tinygl.c ../../drivers/avr/system.h ../../drivers/display.h ../../utils/font.h ../../utils/tinygl.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-paddle.o: paddle.c paddle.h game.h ../../utils/pacer.h ../../utils/tinygl.h ../../drivers/navswitch.h
+paddle.o: paddle.c paddle.h game.h ../../utils/tinygl.h ../../drivers/navswitch.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 ball.o: ball.c ball.h ../../utils/tinygl.h
+	$(CC) -c $(CFLAGS) $< -o $@
 
 
 # Link: create ELF output file from object files.

@@ -5,11 +5,11 @@
 #include <stdbool.h>
 #include "game.h"
 
-#define PADDLE_BOUNCE_ROW PADDLE_ROW - 1
 #define COLUMN_START 4
-#define ROW_START 1
+#define ROW_START 2
 #define BALL_RIGHT false
 #define BALL_FORWARD false
+#define PADDLE_BOUNCE_ROW BOTTOM_MAX - 1
 
 /*
  * Initialisation of the ball. Uses predetermined start points

@@ -1,8 +1,6 @@
 #include "ball.h"
 #include "game.h"
 #include "tinygl.h"
-#include "paddle.h"
-//#include "pacer.h"
 
 /*
  * Initialisation of the ball. Uses predetermined start points
@@ -52,7 +50,7 @@ void ball_move(Ball_t* ball, Paddle_t paddle)
     }
 
     /* TODO Remove next three lines and add transmitting function */
-    if (ball->row == 0) {
+    if (SINGLE_PLAYER && ball->row == 0) {
         ball->forward = false;
     }
     if (ball_at_paddle(ball, paddle)) {

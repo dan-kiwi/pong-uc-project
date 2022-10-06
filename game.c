@@ -2,7 +2,6 @@
 #include "tinygl.h"
 #include "game.h"
 #include "navswitch.h"
-//#include "ir_uart.h"
 #include "paddle.h"
 #include "pacer.h"
 #include "ball.h"
@@ -10,6 +9,7 @@
 #include <stdint.h>
 
 uint16_t counter = 0;
+uint16_t to_count = 100;
 
 Ball_t ball;
 Paddle_t paddle;
@@ -34,8 +34,11 @@ int main (void)
         paddle_move(&paddle);
         paddle_draw(&paddle);
         ball_draw(&ball);
-        if (counter >= 100) {
+        if (counter >= to_count) {
             counter = 0;
+            if (to_count > 0) {
+                to_count--;
+            }
             ball_move(&ball, paddle);
         }
 

@@ -1,10 +1,8 @@
 #include "paddle.h"
 #include "tinygl.h"
-#include "pacer.h"
 #include "navswitch.h"
 #include "game.h"
 
-#include <stdint.h>
 #include <stdbool.h>
 
 /*
