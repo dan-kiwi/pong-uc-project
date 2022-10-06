@@ -5,6 +5,7 @@
 #include "paddle.h"
 #include "pacer.h"
 #include "ball.h"
+#include "welcome.h"
 
 #include <stdint.h>
 
@@ -23,6 +24,8 @@ int main (void)
 //    ir_uart_init();
     paddle_init(&paddle);
     ball_init(&ball);
+
+    welcome_screen();
 
 
     while (1)
