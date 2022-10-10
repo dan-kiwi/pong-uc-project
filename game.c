@@ -16,7 +16,7 @@ uint16_t to_count = 100;
 
 Ball_t ball;
 Paddle_t paddle;
-bool player;
+bool player1;
 
 int main (void)
 {
@@ -31,7 +31,8 @@ int main (void)
 
     welcome_screen();
 
-
+    set_player(&player1);
+    
     while (1)
     {
         pacer_wait ();
@@ -41,15 +42,20 @@ int main (void)
         paddle_move(&paddle);
         paddle_draw(&paddle);
         ball_draw(&ball);
-        if (counter >= to_count) {
+        if (counter >= to_count && player1) {
             counter = 0;
             if (to_count > 0) {
                 to_count--;
             }
             ball_move(&ball, paddle);
+            if (check_ball(&ball)) {
+                change_player(&player1);
+                send_ball(&ball);
+            }
         }
 
         tinygl_update ();
         counter++;
+        check_player(&player1, &ball);
     }
 }

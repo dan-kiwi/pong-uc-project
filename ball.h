@@ -33,4 +33,10 @@ void ball_move (Ball_t* ball, Paddle_t paddle);
  */
 bool ball_at_paddle (Ball_t* ball, Paddle_t paddle);
 
+/*
+ * Checks if ball is ready to move to other player
+ */
+
+bool check_ball(Ball_t* ball)
+
 #endif

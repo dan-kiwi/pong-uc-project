@@ -27,3 +27,19 @@ void set_player(bool* player1)
         }
     }
 }
+
+
+void change_player(bool* player1)
+{
+    ir_uart_putc("C");
+    *player1 = false;
+}
+
+
+void check_player(bool* player1, Ball_t* ball)
+{
+    if (ir_player_get() = "C") {
+        *player1 = true;
+        receive_ball (ball)
+    }
+}

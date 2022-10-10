@@ -72,11 +72,9 @@ bool ball_at_paddle(Ball_t* ball, Paddle_t paddle)
     return false;
 }
 
-//
-//bool ball_to_partner(void)
-//{
-//    bool to_partner = false;
-//    if (ball.row == 4)
-//        to_partner = true;
-//    return to_partner;
-//}
+
+bool check_ball(Ball_t* ball)
+{
+    if (ball->row == 5)
+        return true;
+}
