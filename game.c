@@ -5,6 +5,8 @@
 #include "paddle.h"
 #include "pacer.h"
 #include "ball.h"
+#include "player.h"
+#include "gameButton.h"
 #include "welcome.h"
 
 #include <stdint.h>
@@ -14,6 +16,7 @@ uint16_t to_count = 100;
 
 Ball_t ball;
 Paddle_t paddle;
+bool player;
 
 int main (void)
 {
@@ -24,6 +27,7 @@ int main (void)
 //    ir_uart_init();
     paddle_init(&paddle);
     ball_init(&ball);
+    game_button_init();
 
     welcome_screen();
 

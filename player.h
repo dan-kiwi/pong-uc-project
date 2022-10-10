@@ -9,5 +9,8 @@
 #define player_h
 
 #include <stdio.h>
+#include <stdbool.h>
+
+void set_player(bool* player1);
 
 #endif /* player_h */

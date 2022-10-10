@@ -5,6 +5,7 @@
 #include "ir.h"
 #include "game.h"
 #include "ir_uart.h"
+#include <stdint.h>
 
 /*
  * Initialises the ir sender/receiver
@@ -38,4 +39,12 @@ void receive_ball (Ball_t* ball)
     }
     ball->right = received & 1;
     ball->column = received >> 1;
+}
+
+char ir_player_get(void)
+{
+    if (ir_uart_read_ready_p()) {
+        char player = usart1_getc;
+    }
+    return player;
 }

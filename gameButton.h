@@ -10,4 +10,11 @@
 
 #include <stdio.h>
 
+/*Initialises button1*/
+void button_init (void);
+
+
+/*Returns a non-zero int if button is pressed*/
+int game_button_pressed_p (void);
+
 #endif /* gameButton_h */
