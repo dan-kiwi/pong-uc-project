@@ -26,4 +26,12 @@ void send_ball (Ball_t* ball);
  */
 void receive_ball (Ball_t* ball);
 
+
+/*
+ * Receives a character through IR
+ * The character determines whether there is
+ * a change of player required
+ */
+char ir_player_get(void);
+
 #endif //IR_H

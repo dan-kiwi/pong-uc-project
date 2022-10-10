@@ -41,6 +41,12 @@ void receive_ball (Ball_t* ball)
     ball->column = received >> 1;
 }
 
+/*
+ * Receives a character through IR
+ * The character determines whether there is
+ * a change of player required
+ */
+
 char ir_player_get(void)
 {
     if (ir_uart_read_ready_p()) {
