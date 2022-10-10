@@ -1,0 +1,13 @@
+//
+//  player.h
+//  
+//
+//  Created by Bethany Kaye-Blake on 11/10/22.
+//
+
+#ifndef player_h
+#define player_h
+
+#include <stdio.h>
+
+#endif /* player_h */
