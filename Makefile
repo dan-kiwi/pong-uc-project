@@ -62,8 +62,17 @@ welcome.o: welcome.c welcome.h ../../utils/tinygl.h ../../fonts/font5x7_1.h ../.
 	$(CC) -c $(CFLAGS) $< -o $@
 
 
+gameButton.o: gameButton.c gameButton.h 
+	$(CC) -c $(CFLAGS) $< -o $@
+
+win.o: win.c win.h ball.h 
+	$(CC) -c $(CFLAGS) $< -o $@
+
+ir.o: ir.c ir.h ../../drivers/avr/ir_uart.h game.h
+	$(CC) -c $(CFLAGS) $< -o $@
+
 # Link: create ELF output file from object files.
-game.out: game.o system.o timer.o prescale.o timer0.o usart1.o display.o ledmat.o navswitch.o font.o pacer.o tinygl.o paddle.o ball.o welcome.o
+game.out: game.o system.o timer.o prescale.o timer0.o usart1.o display.o ledmat.o navswitch.o font.o pacer.o tinygl.o paddle.o ball.o welcome.o ir.o win.o gameButton.o
 	$(CC) $(CFLAGS) $^ -o $@ -lm
 	$(SIZE) $@
 
