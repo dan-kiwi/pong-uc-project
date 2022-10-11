@@ -8,6 +8,9 @@
 #define TOP_MAX 0
 #define SINGLE_PLAYER true
 
+#define COUNTER = 0;
+#define TO_COUNT = 100;
+
 typedef struct {
     uint8_t row;
     uint8_t column;

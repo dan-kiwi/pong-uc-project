@@ -11,14 +11,11 @@
 
 #include <stdint.h>
 
-uint16_t counter = 0;
-uint16_t to_count = 100;
-
 Ball_t ball;
 Paddle_t paddle;
 bool player1;
-bool win
-bool gameover
+bool win;
+bool gameover;
 
 int main (void)
 {
@@ -26,13 +23,13 @@ int main (void)
     tinygl_init(PACER_RATE);
     pacer_init(PACER_RATE);
     navswitch_init();
-//    ir_uart_init();
+    //    ir_uart_init();
     paddle_init(&paddle);
     ball_init(&ball);
     game_button_init();
-
+    
     welcome_screen();
-
+    
     set_player(&player1);
     
     while (1)
@@ -40,7 +37,7 @@ int main (void)
         pacer_wait ();
         navswitch_update ();
         tinygl_clear();
-
+        
         paddle_move(&paddle);
         paddle_draw(&paddle);
         ball_draw(&ball);
@@ -50,7 +47,7 @@ int main (void)
                 to_count--;
             }
             ball_move(&ball, paddle);
-
+            
             if (check_ball(&ball)) {
                 change_player(&player1);
                 send_ball(&ball);
@@ -65,11 +62,11 @@ int main (void)
             win == true;
             gameover = true;
         }
-
+        
         tinygl_update ();
         counter++;
         check_player(&player1, &ball);
-
+        
         //to start a new game
         if (gameover) {
             gameover = false;

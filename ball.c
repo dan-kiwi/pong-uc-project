@@ -2,6 +2,7 @@
 #include "game.h"
 #include "tinygl.h"
 #include <stdbool.h>
+#include <stdint.h>
 
 /*
  * Initialisation of the ball. Uses predetermined start points
