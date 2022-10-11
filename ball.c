@@ -95,4 +95,5 @@ bool check_ball(Ball_t* ball)
 {
     if (ball->row == ROW_END)
         return true;
+    return false;
 }
