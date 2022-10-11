@@ -72,6 +72,19 @@ bool ball_at_paddle(Ball_t* ball, Paddle_t paddle)
     return false;
 }
 
+/* 
+ * Checks if ball is at the bounce row
+ * Used to check if ball is at bounce and not at paddle and hance a loss
+ */
+bool ball_at_bounce_row(Ball_t* ball)
+{
+    if (ball->row == PADDLE_BOUNCE_ROW) {
+        return true;
+    }
+    return false;
+}
+
+
 /*
  * Checks to see if the ball is ready to switch boards
  * If the ball is at the end of the board and returns true
