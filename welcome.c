@@ -33,3 +33,11 @@ void welcome_screen (void)
     start_screen();
 }
 
+
+void repeat_game_screen(void)
+{
+    do {
+        navswitch_update();
+        tinygl_text("PUSH TO PLAY AGAIN");
+    } while (!(navswitch_push_event_p(NAVSWITCH_PUSH)));
+}
