@@ -5,8 +5,8 @@
 #include <stdbool.h>
 #include "game.h"
 
-#define START_LEFT 3
-#define START_RIGHT START_LEFT + 1
+#define START_LEFT 0
+#define START_RIGHT 6
 #define PADDLE_ROW BOTTOM_MAX
 
 /*
