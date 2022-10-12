@@ -65,6 +65,7 @@ void ballPlayer (void)
 void ballOpponent (void)
 {
     receive_ball(&ball, &player1);
+    ball_draw(&ball);
 }
 
 int main (void)
