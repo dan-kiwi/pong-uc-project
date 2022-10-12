@@ -88,9 +88,10 @@ int main (void)
 
         if (player1 || SINGLE_PLAYER)
             ballPlayer();
-        else
+        else {
             ballOpponent();
-//            counter = 0;
+            counter = 0;
+        }
 //        if (receive_loss()) {
 //            win == true;
 //            gameover = true;
