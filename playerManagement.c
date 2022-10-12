@@ -69,6 +69,8 @@ void receive_ball (Ball_t* ball, bool* player1)
     if (received) {
         ball->right = received & 1;
         ball->column = received >> 1;
+        ball->row = 0;
+        ball->forward = false;
         *player1 = true;
     }
 }

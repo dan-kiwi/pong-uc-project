@@ -43,8 +43,6 @@ void init_game(void)
 
 void ballPlayer (void)
 {
-    paddle_move(&paddle);
-    paddle_draw(&paddle);
     ball_draw(&ball);
     if (counter >= 100) {
         counter = 0;
@@ -80,6 +78,9 @@ int main (void)
         pacer_wait ();
         navswitch_update ();
         tinygl_clear();
+
+        paddle_move(&paddle);
+        paddle_draw(&paddle);
 
         if (player1 || SINGLE_PLAYER)
             ballPlayer();
