@@ -46,7 +46,7 @@ void ballPlayer (void)
     ball_draw(&ball);
     if (counter >= 100) {
         counter = 0;
-        ball_move(&ball, paddle);
+        
 
         if (check_ball(&ball)) {
             send_ball(&ball, &player1);
@@ -55,7 +55,10 @@ void ballPlayer (void)
 //                    send_loss();
 //                    gameover = true;
 //                }
+        } else {
+            ball_move(&ball, paddle);
         }
+    
     }
 }
 
