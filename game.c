@@ -48,7 +48,7 @@ void ballPlayer (void)
         counter = 0;
         
 
-        if (check_ball(&ball)) {
+        if (check_ball(&ball) && ball.forward) {
             send_ball(&ball, &player1);
 //            } else {
 //                if (check_if_lost(&ball, paddle)) {

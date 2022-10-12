@@ -101,7 +101,7 @@ bool ball_at_bounce_row(Ball_t* ball)
  */
 bool check_ball(Ball_t* ball)
 {
-    if (ball->row + 1 == ROW_END)
+    if (ball->row== ROW_END)
         return true;
     return false;
 }
