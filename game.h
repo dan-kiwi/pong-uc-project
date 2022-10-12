@@ -6,7 +6,7 @@
 #define RIGHT_MAX 6
 #define BOTTOM_MAX 4
 #define TOP_MAX 0
-#define SINGLE_PLAYER true
+#define SINGLE_PLAYER false
 
 #define COUNTER = 0;
 #define TO_COUNT = 100;
