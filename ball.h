@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include "game.h"
 
-#define COLUMN_START 1
+#define COLUMN_START 2
 #define ROW_START 0
 #define ROW_END 0
 #define BALL_RIGHT false
