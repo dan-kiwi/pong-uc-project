@@ -69,7 +69,7 @@ void receive_ball (Ball_t* ball, bool* player1)
     char received = ir_get_char();
     if (received) {
         ball->right = ~(received & 1);
-        ball->column = 6 - (received >> 1);
+        ball->column = 5 - (received >> 1);
         ball->row = 0;
         ball->forward = false;
         *player1 = true;
