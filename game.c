@@ -90,6 +90,7 @@ int main (void)
             ballPlayer();
         else
             ballOpponent();
+            counter = 0;
 //        if (receive_loss()) {
 //            win == true;
 //            gameover = true;
