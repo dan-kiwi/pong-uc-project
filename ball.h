@@ -7,7 +7,7 @@
 
 #define COLUMN_START 1
 #define ROW_START 0
-#define ROW_END 5
+#define ROW_END 0
 #define BALL_RIGHT false
 #define BALL_FORWARD false
 #define PADDLE_BOUNCE_ROW BOTTOM_MAX - 1
