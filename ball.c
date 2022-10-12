@@ -92,9 +92,9 @@ bool ball_at_bounce_row(Ball_t* ball)
  * If the ball is at the end of the board and returns true
  * if it is to show the player must now change
  */
-bool check_ball(Ball_t* ball)
-{
-    if (ball->row == ROW_END)
-        return true;
-    return false;
-}
+//bool check_ball(Ball_t* ball)
+//{
+//    if (ball->row == ROW_END)
+//        return true;
+//    return false;
+//}

@@ -39,6 +39,6 @@ bool ball_at_paddle (Ball_t* ball, Paddle_t paddle);
  * If the ball is at the end of the board and returns true
  * if it is to show the player must now change
  */
-bool check_ball(Ball_t* ball)
+//bool check_ball(Ball_t* ball);
 
 #endif

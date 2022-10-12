@@ -15,10 +15,10 @@ void welcome_init (void);
 
 void start_screen (void);
 
-uint8_t game_diff (void);
+//uint8_t game_diff (void);
 
 void welcome_screen (void);
 
-void repeat_game_screen(void);
+//void repeat_game_screen(void);
 
 #endif //WELCOME_H
