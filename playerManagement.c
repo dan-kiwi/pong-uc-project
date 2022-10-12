@@ -46,7 +46,7 @@ void send_ball (Ball_t* ball, bool* player1)
 {
     char to_send = ball->column << 1 | ball->right;
     ir_uart_putc(to_send);
-    *player1 = true;
+    *player1 = false;
 }
 
 char ir_get_char(void)
