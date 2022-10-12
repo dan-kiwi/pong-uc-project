@@ -5,8 +5,8 @@
 #include <stdbool.h>
 #include "game.h"
 
-#define COLUMN_START 4
-#define ROW_START 2
+#define COLUMN_START 1
+#define ROW_START 1
 #define ROW_END 5
 #define BALL_RIGHT false
 #define BALL_FORWARD false
@@ -15,7 +15,7 @@
 /*
  * Initialisation of the ball. Uses predetermined start points
  */
-void ball_init (Ball_t* ball);
+void ball_init (Ball_t* ball, bool starting);
 
 /*
  * Draws the ball on the screen.
@@ -39,6 +39,6 @@ bool ball_at_paddle (Ball_t* ball, Paddle_t paddle);
  * If the ball is at the end of the board and returns true
  * if it is to show the player must now change
  */
-//bool check_ball(Ball_t* ball);
+bool check_ball(Ball_t* ball);
 
 #endif

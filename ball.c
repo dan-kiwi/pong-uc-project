@@ -7,12 +7,19 @@
 /*
  * Initialisation of the ball. Uses predetermined start points
  */
-void ball_init(Ball_t* ball)
+void ball_init(Ball_t* ball, bool starting)
 {
-    ball->column = COLUMN_START;
-    ball->row = ROW_START;
-    ball->right = BALL_RIGHT;
-    ball->forward = BALL_FORWARD;
+    if (starting) {
+        ball->column = COLUMN_START;
+        ball->row = ROW_START;
+        ball->right = BALL_RIGHT;
+        ball->forward = BALL_FORWARD;
+    } else {
+        ball->column = 10;
+        ball->row = 10;
+        ball->right = true;
+        ball->forward = true;
+    }
 }
 
 /*
@@ -92,9 +99,9 @@ bool ball_at_bounce_row(Ball_t* ball)
  * If the ball is at the end of the board and returns true
  * if it is to show the player must now change
  */
-//bool check_ball(Ball_t* ball)
-//{
-//    if (ball->row == ROW_END)
-//        return true;
-//    return false;
-//}
+bool check_ball(Ball_t* ball)
+{
+    if (ball->row == ROW_END)
+        return true;
+    return false;
+}

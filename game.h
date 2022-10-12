@@ -24,4 +24,8 @@ typedef struct
     uint8_t right;
 } Paddle_t;
 
+void init_sys (void);
+
+void init_game (void);
+
 #endif

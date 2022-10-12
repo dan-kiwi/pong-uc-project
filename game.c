@@ -5,9 +5,10 @@
 #include "paddle.h"
 #include "pacer.h"
 #include "ball.h"
-//#include "player.h"
-//#include "gameButton.h"
+#include "playerManagement.h"
 #include "welcome.h"
+#include "ir_uart.h"
+//#include "ir.h"
 
 #include <stdint.h>
 
@@ -18,50 +19,67 @@ bool player1;
 bool win;
 bool gameover;
 
-int main (void)
+/*
+ * Initialises the game by initialising all other files
+ */
+void init_sys (void)
 {
-    counter = 0;
     system_init ();
     tinygl_init(PACER_RATE);
     pacer_init(PACER_RATE);
     navswitch_init();
-    //    ir_uart_init();
-    paddle_init(&paddle);
-    ball_init(&ball);
-//    game_button_init();
-    
-    welcome_screen();
-    
-//    set_player(&player1);
+    ir_init();
+}
 
-//    while (1){
-//        tinygl_text("WELCOME TO PONG ");
-//        tinygl_update ();
-//    }
+void init_game(void)
+{
+    counter = 0;
+    set_player(&player1);
+    paddle_init(&paddle);
+    ball_init(&ball, player1);
+}
+
+void ballPlayer (void)
+{
+    paddle_move(&paddle);
+    paddle_draw(&paddle);
+    ball_draw(&ball);
+    if (counter >= 100) {
+        counter = 0;
+        ball_move(&ball, paddle);
+
+        if (check_ball(&ball)) {
+            send_ball(&ball, &player1);
+//            } else {
+//                if (check_if_lost(&ball, paddle)) {
+//                    send_loss();
+//                    gameover = true;
+//                }
+        }
+    }
+}
+
+void ballOpponent (void)
+{
+    receive_ball(&ball, &player1);
+}
+
+int main (void)
+{
+    init_sys();
+    //    welcome_screen();
+    init_game();
     
     while (1)
     {
         pacer_wait ();
         navswitch_update ();
         tinygl_clear();
-        
-        paddle_move(&paddle);
-        paddle_draw(&paddle);
-        ball_draw(&ball);
-        if (counter >= 100) {
-            counter = 0;
-            ball_move(&ball, paddle);
-            
-//            if (check_ball(&ball)) {
-//                change_player(&player1);
-//                send_ball(&ball);
-//            } else {
-//                if (check_if_lost(&ball, paddle)) {
-//                    send_loss();
-//                    gameover = true;
-//                }
-//            }
-        }
+
+        if (player1 || SINGLE_PLAYER)
+            ballPlayer();
+        else
+            ballOpponent();
 //        if (receive_loss()) {
 //            win == true;
 //            gameover = true;
