@@ -4,10 +4,7 @@
 
 #include "welcome.h"
 #include "tinygl.h"
-//#include "font5x7_1.h"
-#include "navswitch.h"
 #include "font3x5_1.h"
-#include "pacer.h"
 
 void welcome_init (void)
 {
@@ -15,16 +12,12 @@ void welcome_init (void)
     tinygl_text_speed_set(10);
     tinygl_text_mode_set (TINYGL_TEXT_MODE_SCROLL);
     tinygl_text_dir_set (TINYGL_TEXT_DIR_ROTATE);
+    tinygl_text("WELCOME TO PONG");
 }
 
 void start_screen (void)
 {
-    tinygl_text("WELCOME TO PONG");
-    do {
-        navswitch_update();
-        tinygl_update ();
-        pacer_wait();
-    } while (!(navswitch_push_event_p(NAVSWITCH_PUSH)));
+   tinygl_update();
 }
 
 //uint8_t game_diff (void)

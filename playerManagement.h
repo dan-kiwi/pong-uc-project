@@ -14,15 +14,13 @@
 
 #define STARTING_NUMBER 1
 
-
-void ir_init(void);
 /*
  * Player1 is set by the first board to push the Button
  * When the button is pushed, that board set player1
  * to true and sends over IR that the other board
  * is now not player1
  */
-void set_player(bool* player1);
+bool set_player(bool* player1);
 
 /*
  * Send the information of the ball through IR

@@ -6,7 +6,7 @@
 #include "game.h"
 
 #define COLUMN_START 1
-#define ROW_START 1
+#define ROW_START 0
 #define ROW_END 5
 #define BALL_RIGHT false
 #define BALL_FORWARD false

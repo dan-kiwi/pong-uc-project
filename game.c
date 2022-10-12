@@ -8,7 +8,7 @@
 #include "playerManagement.h"
 #include "welcome.h"
 #include "ir_uart.h"
-//#include "ir.h"
+#include "button.h"
 
 #include <stdint.h>
 
@@ -28,7 +28,9 @@ void init_sys (void)
     tinygl_init(PACER_RATE);
     pacer_init(PACER_RATE);
     navswitch_init();
-    ir_init();
+    ir_uart_init();
+    button_init();
+    welcome_init();
 }
 
 void init_game(void)
@@ -67,7 +69,10 @@ void ballOpponent (void)
 int main (void)
 {
     init_sys();
-    //    welcome_screen();
+    while (!set_player(&player1)) {
+        start_screen();
+        pacer_wait();
+    }
     init_game();
     
     while (1)

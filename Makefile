@@ -58,7 +58,7 @@ paddle.o: paddle.c paddle.h game.h ../../utils/pacer.h ../../utils/tinygl.h ../.
 ball.o: ball.c ball.h ../../utils/tinygl.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-welcome.o: welcome.c welcome.h ../../utils/tinygl.h ../../fonts/font3x5_1.h ../../drivers/navswitch.h ../../utils/pacer.h
+welcome.o: welcome.c welcome.h ../../utils/tinygl.h ../../fonts/font3x5_1.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 playerManagement.o: playerManagement.c playerManagement.h ../../drivers/avr/ir_uart.h ../../drivers/button.h
@@ -70,14 +70,7 @@ ir_uart.o: ../../drivers/avr/ir_uart.c ../../drivers/avr/ir_uart.h ../../drivers
 button.o: ../../drivers/button.c ../../drivers/button.h ../../drivers/avr/system.h ../../drivers/avr/pio.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-
-#gameButton.o: gameButton.c gameButton.h
-#	$(CC) -c $(CFLAGS) $< -o $@
-#
 #win.o: win.c win.h ball.h
-#	$(CC) -c $(CFLAGS) $< -o $@
-#
-#ir.o: ir.c ir.h ../../drivers/avr/ir_uart.h game.h
 #	$(CC) -c $(CFLAGS) $< -o $@
 
 # Link: create ELF output file from object files.

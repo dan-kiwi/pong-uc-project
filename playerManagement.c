@@ -11,35 +11,28 @@
 #include <stdbool.h>
 
 
-void ir_init(void)
-{
-    ir_uart_init();
-    button_init();
-}
-
 /*
  * Player1 is set by the first board to push the Button
  * When the button is pushed, that board set player1
  * to true and sends over IR that the other board
  * is now not player1
  */
-void set_player(bool* player1)
+bool set_player(bool* player1)
 {
     bool set = false;
-    while (set == false) {
-        button_update();
-        if (button_push_event_p(0) > 0) {
-            *player1 = true;
+    button_update();
+    if (button_push_event_p(0) > 0) {
+        *player1 = true;
+        set = true;
+        ir_uart_putc(STARTING_NUMBER);
+    } else {
+        char get_player = ir_get_char();
+        if (get_player == STARTING_NUMBER) {
+            *player1 = false;
             set = true;
-            ir_uart_putc(STARTING_NUMBER);
-        } else {
-            char get_player = ir_get_char();
-            if (get_player == STARTING_NUMBER) {
-                *player1 = false;
-                set = true;
-            }
         }
     }
+    return set;
 }
 
 
