@@ -36,6 +36,9 @@ void send_ball (Ball_t* ball, bool* player1);
  */
 void receive_ball (Ball_t* ball, bool* player1);
 
+/*
+ * Gets the char from the IR receiver
+ */
 char ir_get_char (void);
 
 #endif /* player_h */

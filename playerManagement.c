@@ -50,6 +50,9 @@ void send_ball (Ball_t* ball, bool* player1)
     *player1 = false;
 }
 
+/*
+ * Gets the char from the IR receiver
+ */
 char ir_get_char(void)
 {
     char received = 0;

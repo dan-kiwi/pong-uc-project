@@ -6,6 +6,9 @@
 #include "tinygl.h"
 #include "font3x5_1.h"
 
+/*
+ * Initialises the welcome screen with correct settings
+ */
 void welcome_init (void)
 {
     tinygl_font_set (&font3x5_1);
@@ -14,6 +17,7 @@ void welcome_init (void)
     tinygl_text_dir_set (TINYGL_TEXT_DIR_ROTATE);
     tinygl_text("WELCOME TO PONG");
 }
+
 
 void start_screen (void)
 {

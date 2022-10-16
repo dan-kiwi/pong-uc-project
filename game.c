@@ -33,6 +33,9 @@ void init_sys (void)
     welcome_init();
 }
 
+/*
+ * Initialises the game to play
+ */
 void init_game(void)
 {
     counter = 0;
@@ -41,6 +44,9 @@ void init_game(void)
     ball_init(&ball, player1);
 }
 
+/*
+ * Method called when the ball is on this computer
+ */
 void ballPlayer (void)
 {
     ball_draw(&ball);
@@ -62,12 +68,18 @@ void ballPlayer (void)
     }
 }
 
+/*
+ * Method called when ball is on opponent's computer
+ */
 void ballOpponent (void)
 {
     receive_ball(&ball, &player1);
     ball_draw(&ball);
 }
 
+/*
+ * Main game function
+ */
 int main (void)
 {
     init_sys();
@@ -92,10 +104,10 @@ int main (void)
             ballOpponent();
             counter = 0;
         }
-//        if (receive_loss()) {
-//            win == true;
-//            gameover = true;
-//        }
+        if (receive_loss()) {
+            win == true;
+            gameover = true;
+        }
         
         tinygl_update ();
         counter++;

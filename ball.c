@@ -58,7 +58,6 @@ void ball_move(Ball_t* ball, Paddle_t paddle)
         }
     }
 
-    /* TODO Remove next three lines and add transmitting function */
     if (SINGLE_PLAYER && ball->row == 0) {
         ball->forward = false;
     }
@@ -83,7 +82,7 @@ bool ball_at_paddle(Ball_t* ball, Paddle_t paddle)
 
 /* 
  * Checks if ball is at the bounce row
- * Used to check if ball is at bounce and not at paddle and hance a loss
+ * Used to check if ball is at bounce and not at paddle and hence a loss
  */
 bool ball_at_bounce_row(Ball_t* ball)
 {
