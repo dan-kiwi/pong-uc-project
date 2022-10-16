@@ -37,11 +37,20 @@ void welcome_screen (void)
     start_screen();
 }
 
+void welcome_new_game_init(void)
+{
+    tinygl_font_set (&font3x5_1);
+    tinygl_text_speed_set(TEXT_SPEED);
+    tinygl_text_mode_set (TINYGL_TEXT_MODE_SCROLL);
+    tinygl_text_dir_set (TINYGL_TEXT_DIR_ROTATE);
+    tinygl_text("PUSH TO PLAY AGAIN");
+}
 
 //void repeat_game_screen(void)
 //{
+//    welcome_new_game_init();
+//    tinygl_update();
 //    do {
 //        navswitch_update();
-//        tinygl_text("PUSH TO PLAY AGAIN");
 //    } while (!(navswitch_push_event_p(NAVSWITCH_PUSH)));
 //}
