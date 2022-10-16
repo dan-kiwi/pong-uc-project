@@ -1,9 +1,8 @@
-//
-//  player.h
-//  
-//
-//  Created by Bethany Kaye-Blake on 11/10/22.
-//
+/*  @file   playerManagement.h
+    @auther group 219
+    @date   October 2022
+    @brief  Pong player management module
+ */
 
 #ifndef player_h
 #define player_h

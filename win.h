@@ -1,9 +1,8 @@
-//
-//  win.h
-//  
-//
-//  Created by Bethany Kaye-Blake on 11/10/22.
-//
+/*  @file   win.h
+    @auther group 219
+    @date   October 2022
+    @brief  Pong win checking module
+ */
 
 #ifndef win_h
 #define win_h

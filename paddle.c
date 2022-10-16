@@ -1,3 +1,9 @@
+/*  @file   paddle.c
+    @auther group 219
+    @date   October 2022
+    @brief  Pong paddle module
+ */
+
 #include "paddle.h"
 #include "tinygl.h"
 #include "navswitch.h"

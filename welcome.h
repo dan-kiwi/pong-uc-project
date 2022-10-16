@@ -1,7 +1,8 @@
-//
-// Created by dbi36 on 6/10/22.
-//
-
+/*  @file   welcome.h
+    @auther group 219
+    @date   October 2022
+    @brief  Pong start welcome screen module
+ */
 #ifndef WELCOME_H
 #define WELCOME_H
 

@@ -1,6 +1,8 @@
-//
-// Created by dbi36 on 6/10/22.
-//
+/*  @file   welcome.c
+    @auther group 219
+    @date   October 2022
+    @brief  Pong start welcome screen module
+ */
 
 #include "welcome.h"
 #include "tinygl.h"

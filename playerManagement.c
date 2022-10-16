@@ -1,9 +1,9 @@
-//
-//  player.c
-//  
-//
-//  Created by Bethany Kaye-Blake on 11/10/22.
-//
+/*  @file   playerManagement.c
+    @auther group 219
+    @date   October 2022
+    @brief  Pong player management module
+ */
+
 #include "playerManagement.h"
 #include "ir_uart.h"
 #include "button.h"

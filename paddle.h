@@ -1,3 +1,9 @@
+/*  @file   paddle.h
+    @auther group 219
+    @date   October 2022
+    @brief  Pong paddle module
+ */
+
 #ifndef PADDLE_H
 #define PADDLE_H
 

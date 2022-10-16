@@ -1,3 +1,9 @@
+/*  @file   ball.h
+    @auther group 219
+    @date   October 2022
+    @brief  Pong ball module
+ */
+
 #ifndef BALL_H
 #define BALL_H
 

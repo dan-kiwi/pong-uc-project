@@ -1,3 +1,9 @@
+/*  @file   ball.c
+    @auther group 219
+    @date   October 2022
+    @brief  Pong ball module
+ */
+
 #include "ball.h"
 #include "game.h"
 #include "tinygl.h"

@@ -1,9 +1,8 @@
-//
-//  win.c
-//  
-//
-//  Created by Bethany Kaye-Blake on 11/10/22.
-//
+/*  @file   win.c
+    @auther group 219
+    @date   October 2022
+    @brief  Pong win checking module
+ */
 
 #include "win.h"
 #include "ball.h"

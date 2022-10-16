@@ -1,3 +1,9 @@
+/*  @file   game.c
+    @auther group 219
+    @date   October 2022
+    @brief  Main game module
+ */
+
 #include "system.h"
 #include "tinygl.h"
 #include "game.h"
