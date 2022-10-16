@@ -10,6 +10,7 @@
 #define EASY_MODE 100
 #define MEDIUM_MODE 75
 #define HARD_MODE 50
+#define TEXT_SPEED 10
 
 void welcome_init (void);
 

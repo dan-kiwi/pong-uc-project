@@ -13,6 +13,8 @@
 #include "game.h"
 
 #define STARTING_NUMBER 1
+#define BALL_OFF_SCREEN 10
+#define BUTTON_0 0
 
 /*
  * Player1 is set by the first board to push the Button

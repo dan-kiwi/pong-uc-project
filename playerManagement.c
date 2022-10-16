@@ -21,7 +21,7 @@ bool set_player(bool* player1)
 {
     bool set = false;
     button_update();
-    if (button_push_event_p(0) > 0) {
+    if (button_push_event_p(BUTTON_0) != false) {
         *player1 = true;
         set = true;
         ir_uart_putc(STARTING_NUMBER);
@@ -46,7 +46,7 @@ void send_ball (Ball_t* ball, bool* player1)
 {
     char to_send = ball->column << 1 | ball->right;
     ir_uart_putc(to_send);
-    ball->row = 10;
+    ball->row = BALL_OFF_SCREEN;
     *player1 = false;
 }
 
@@ -72,8 +72,8 @@ void receive_ball (Ball_t* ball, bool* player1)
     char received = ir_get_char();
     if (received) {
         ball->right = ~(received & 1);
-        ball->column = 6 - (received >> 1);
-        ball->row = 0;
+        ball->column = RIGHT_MAX - (received >> 1);
+        ball->row = TOP_MAX;
         ball->forward = false;
         *player1 = true;
 //        if (ball->right) {

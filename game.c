@@ -9,6 +9,7 @@
 #include "welcome.h"
 #include "ir_uart.h"
 #include "button.h"
+#include "win.h"
 
 #include <stdint.h>
 
@@ -16,8 +17,7 @@ uint8_t counter;
 Ball_t ball;
 Paddle_t paddle;
 bool player1;
-bool win;
-bool gameover;
+uint8_t gamemode;
 
 /*
  * Initialises the game by initialising all other files
@@ -31,6 +31,9 @@ void init_sys (void)
     ir_uart_init();
     button_init();
     welcome_init();
+    paddle_init(&paddle);
+    ball_init(&ball, player1);
+    counter = 0;
 }
 
 /*
@@ -38,10 +41,9 @@ void init_sys (void)
  */
 void init_game(void)
 {
-    counter = 0;
+
     set_player(&player1);
-    paddle_init(&paddle);
-    ball_init(&ball, player1);
+
 }
 
 /*
@@ -104,8 +106,12 @@ int main (void)
             ballOpponent();
             counter = 0;
         }
-        if (receive_loss()) {
-            win == true;
+        uint8_t gameover = check_gameover(&ball, paddle);
+        if (gameover == 1) {
+            win = false;
+            gameover = true;
+        } else if (gameover == 2) {
+            win = true;
             gameover = true;
         }
         

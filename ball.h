@@ -41,4 +41,10 @@ bool ball_at_paddle (Ball_t* ball, Paddle_t paddle);
  */
 bool check_ball(Ball_t* ball);
 
+/*
+ * Checks if ball is at the bounce row
+ * Used to check if ball is at bounce and not at paddle and hence a loss
+ */
+bool ball_at_bounce_row(Ball_t* ball);
+
 #endif
