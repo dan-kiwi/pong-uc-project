@@ -23,4 +23,6 @@ void welcome_screen (void);
 
 //void repeat_game_screen(void);
 
+//void repeat_game_screen(void);
+
 #endif //WELCOME_H
