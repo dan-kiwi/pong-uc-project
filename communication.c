@@ -1,7 +1,7 @@
 /*  @file   welcome.c
     @author Daniel Bishop & Bethany Kaye-Blake
     @date   October 2022
-    @brief  Pong start welcome screen module
+    @brief  Pong communications module
  */
 
 #include "communication.h"
