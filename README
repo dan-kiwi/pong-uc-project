@@ -1,16 +1,19 @@
-Use this directory for your final game and its module(s).  Only the
-files in this directory will be marked.
+Pong by Daniel Bishop and Bethany Kaye-Blake
 
-Ensure you use the git add command to add your files to the git
-repository.  For example,
+This directory contains the required modules for a two-player pong game. When make is run it will read Makefile
+	
+make		-> builds the application for the ATmega32
+make program	-> programs the pong game into the ATmega32 flash memory
+make clean	-> deletes the object and executable files
 
-git add module.c
+In order to start the game, one play must push the navswitch down. You can then set the level you wish to play out, which corresponds to the speed at which the ball moves. Once this has been set, once a player pushes the button, the game begins and the ball will bounce between the led mats until a player loses. At this point, if the player wishes to continue, they can push the navswitch to restart the game.
 
-Then use the git commit command to add the file contents
+The directory structure is:
 
-git commit -m "Added file" module.c
-
-The use the git push command to copy the changes to the remote git server
-
-git push
+ball		    -> module detailing ball initialisation, movement and general game checks pertaining to the ball
+game		    -> module containing the main game, supported by helper modules
+paddle		    -> module detailing paddle initialisation, movement and led mat drawing
+playerManagement    -> module containing functions to manage player interaction
+communication	    -> module for communication between players and game setup
+win		    -> module containing functions and such relating to game winning
 
