@@ -99,5 +99,5 @@ void lose_screen (void)
 void win_screen (void)
 {
     text_init();
-    tinygl_text("LOST! PUSH TO PLAY AGAIN");
+    tinygl_text("WON! PUSH TO PLAY AGAIN");
 }
