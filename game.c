@@ -59,7 +59,7 @@ void init_game(void)
 void ballPlayer (void)
 {
     ball_draw(&ball);
-    if (counter >= 100) {
+    if (counter >= gamelevel) {
         counter = 0;
         
 

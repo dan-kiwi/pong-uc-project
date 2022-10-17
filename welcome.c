@@ -37,25 +37,25 @@ bool choose_game_level (uint8_t* gamelevel)
     if (navswitch_push_event_p(NAVSWITCH_PUSH)) {
         return true;
     } else if (*gamelevel == GAMELEVEL_NOT_SET) {
-        display_game_level(*gamelevel);
         *gamelevel = EASY_MODE;
+        display_game_level(*gamelevel);
     } else if (*gamelevel == EASY_MODE) {
         if (navswitch_push_event_p(NAVSWITCH_WEST)) {
-            display_game_level(*gamelevel);
             *gamelevel = MEDIUM_MODE;
+            display_game_level(*gamelevel);
         }
     } else if (*gamelevel == MEDIUM_MODE) {
         if (navswitch_push_event_p(NAVSWITCH_EAST)) {
-            display_game_level(*gamelevel);
             *gamelevel = EASY_MODE;
-        } else if (navswitch_push_event_p(NAVSWITCH_WEST)) {
             display_game_level(*gamelevel);
-            *gamelevel = MEDIUM_MODE;
+        } else if (navswitch_push_event_p(NAVSWITCH_WEST)) {
+            *gamelevel = HARD_MODE;
+            display_game_level(*gamelevel);
         }
     } else if (*gamelevel == HARD_MODE) {
         if (navswitch_push_event_p(NAVSWITCH_EAST)) {
-            display_game_level(*gamelevel);
             *gamelevel = MEDIUM_MODE;
+            display_game_level(*gamelevel);
         }
     }
     return false;
