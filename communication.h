@@ -16,12 +16,14 @@
 
 void text_init (void);
 
-void welcome_init (void);
+void welcome_screen (void);
 
 bool choose_game_level (uint8_t* gamelevel);
 
 void display_game_level (uint8_t gamelevel);
 
-uint8_t start_screen (void);
+void lose_screen (void);
+
+void win_screen (void);
 
 #endif //WELCOME_H

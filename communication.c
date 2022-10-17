@@ -24,11 +24,10 @@ void text_init (void)
     tinygl_clear();
 }
 
-void welcome_init (void)
+void welcome_screen (void)
 {
     text_init();
     tinygl_text("WELCOME TO PONG");
-//    text_set = true;
 }
 
 bool choose_game_level (uint8_t* gamelevel)
@@ -75,19 +74,17 @@ void display_game_level (uint8_t gamelevel)
 }
 
 
-uint8_t start_screen (void)
+void lose_screen (void)
 {
-    if (navswitch_push_event_p(NAVSWITCH_PUSH)) {
-        return GAMEMODE_LEVELSET;
-    }
+    text_init();
+    tinygl_text("LOST! PUSH TO PLAY AGAIN");
 }
 
-
-//void welcome_screen (void)
-//{
-//    welcome_init();
-//    start_screen();
-//}
+void win_screen (void)
+{
+    text_init();
+    tinygl_text("LOST! PUSH TO PLAY AGAIN");
+}
 
 //void welcome_new_game_init(void)
 //{

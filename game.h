@@ -13,7 +13,7 @@
 #define BOTTOM_MAX 4
 #define TOP_MAX 0
 #define SINGLE_PLAYER false
-#define GAMEMODE_WELCOME 0
+#define GAMEMODE_WAITING 0
 #define GAMEMODE_PLAY 1
 #define GAMEMODE_WIN 2
 #define GAMEMODE_LOSS 3

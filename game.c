@@ -37,8 +37,8 @@ void init_sys (void)
     navswitch_init();
     ir_uart_init();
     button_init();
-    welcome_init();
-    gamemode = GAMEMODE_WELCOME;
+    welcome_screen();
+    gamemode = GAMEMODE_WAITING;
     gamelevel = GAMELEVEL_NOT_SET;
 }
 
@@ -92,8 +92,10 @@ int main (void)
         if (check_player()) {
             player1 = false;
             init_game();
-        } else if (gamemode == GAMEMODE_WELCOME) {
-            gamemode = start_screen();
+        } else if (gamemode == GAMEMODE_WAITING) {
+            if (navswitch_push_event_p(NAVSWITCH_PUSH)) {
+                return GAMEMODE_LEVELSET;
+            }
         } else if (gamemode == GAMEMODE_LEVELSET) {
             if (choose_game_level(&gamelevel)) {
                 player1 = true;
@@ -112,7 +114,11 @@ int main (void)
                 counter = 0;
             }
         } else if (gamemode == GAMEMODE_LOSS) {
-
+            lose_screen();
+            gamemode = GAMEMODE_WAITING;
+        } else if (gamemode == GAMEMODE_WIN) {
+            win_screen();
+            gamemode = GAMEMODE_WAITING;
         }
 
         pacer_wait ();

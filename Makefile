@@ -16,7 +16,7 @@ all: game.out
 
 
 # Compile: create object files from C source files.
-game.o: game.c ../../drivers/avr/system.h game.h ../../utils/pacer.h ../../utils/tinygl.h ../../drivers/navswitch.h paddle.h ball.h communication.h
+game.o: game.c ../../drivers/avr/system.h game.h ../../utils/pacer.h ../../utils/tinygl.h ../../drivers/navswitch.h paddle.h ball.h communication.h win.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 prescale.o: ../../drivers/avr/prescale.c ../../drivers/avr/prescale.h ../../drivers/avr/system.h
@@ -70,11 +70,11 @@ ir_uart.o: ../../drivers/avr/ir_uart.c ../../drivers/avr/ir_uart.h ../../drivers
 button.o: ../../drivers/button.c ../../drivers/button.h ../../drivers/avr/system.h ../../drivers/avr/pio.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-#win.o: win.c win.h ball.h
-#	$(CC) -c $(CFLAGS) $< -o $@
+win.o: win.c win.h ball.h ../../drivers/avr/ir_uart.h game.h
+	$(CC) -c $(CFLAGS) $< -o $@
 
 # Link: create ELF output file from object files.
-game.out: game.o system.o timer.o prescale.o timer0.o usart1.o display.o ledmat.o navswitch.o font.o pacer.o tinygl.o paddle.o ball.o welcome.o playerManagement.o ir_uart.o button.o #ir.o win.o gameButton.o
+game.out: game.o system.o timer.o prescale.o timer0.o usart1.o display.o ledmat.o navswitch.o font.o pacer.o tinygl.o paddle.o ball.o welcome.o playerManagement.o ir_uart.o button.o win.o
 	$(CC) $(CFLAGS) $^ -o $@ -lm
 	$(SIZE) $@
 

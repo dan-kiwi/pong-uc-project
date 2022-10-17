@@ -12,7 +12,7 @@
 #include "game.h"
 
 #define START_LEFT 0
-#define START_RIGHT 6
+#define START_RIGHT 1
 #define PADDLE_ROW BOTTOM_MAX
 
 /*
