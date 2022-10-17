@@ -1,5 +1,5 @@
 /*  @file   win.c
-    @author group 219
+    @author Daniel Bishop & Bethany Kaye-Blake
     @date   October 2022
     @brief  Pong win checking module
  */
@@ -38,7 +38,7 @@ void send_loss (void)
  */
 bool check_if_opponent_lost(void)
 {
-    char received;
+    char received = 0;
     if (ir_uart_read_ready_p()) {
         received = ir_uart_getc();
     }

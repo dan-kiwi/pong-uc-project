@@ -1,5 +1,5 @@
 /*  @file   playerManagement.c
-    @author group 219
+    @author Daniel Bishop & Bethany Kaye-Blake
     @date   October 2022
     @brief  Pong player management module
  */
@@ -10,8 +10,10 @@
 
 #include <stdbool.h>
 
-
-
+/*
+ * Check's to see if the opponent's computer has started the game
+ * @return uint8_t: the gamelevel if game started, 0 else
+ */
 uint8_t check_player(void)
 {
     char received = ir_get_char();
@@ -21,6 +23,10 @@ uint8_t check_player(void)
     return 0;
 }
 
+/*
+ * Send's the current gamelevel to the opponent. Starts game
+ * @param gamelevel: one of three game level's the game will play at
+ */
 void send_player (uint8_t gamelevel)
 {
     ir_uart_putc((char) gamelevel);

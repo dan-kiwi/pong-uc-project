@@ -1,5 +1,5 @@
 /*  @file   win.h
-    @author group 219
+    @author Daniel Bishop & Bethany Kaye-Blake
     @date   October 2022
     @brief  Pong win checking module
  */

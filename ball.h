@@ -1,5 +1,5 @@
 /*  @file   ball.h
-    @author group 219
+    @author Daniel Bishop & Bethany Kaye-Blake
     @date   October 2022
     @brief  Pong ball module
  */
@@ -11,9 +11,8 @@
 #include <stdbool.h>
 #include "game.h"
 
-#define COLUMN_START 2
-#define ROW_START 0
-#define ROW_END 0
+#define COLUMN_START LEFT_MAX + 2
+#define ROW_START TOP_MAX
 #define BALL_RIGHT false
 #define BALL_FORWARD false
 #define PADDLE_BOUNCE_ROW BOTTOM_MAX - 1
@@ -48,8 +47,8 @@ bool ball_at_paddle (Ball_t* ball, Paddle_t paddle);
 bool check_ball(Ball_t* ball);
 
 /*
- * Checks if ball is at the bounce row
- * Used to check if ball is at bounce and not at paddle and hence a loss
+ * Checks if ball is at the end row
+ * Used to check if ball is at end, not at paddle and hence a loss
  */
 bool ball_at_end(Ball_t* ball);
 

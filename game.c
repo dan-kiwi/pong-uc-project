@@ -1,5 +1,5 @@
 /*  @file   game.c
-    @author group 219
+    @author Daniel Bishop & Bethany Kaye-Blake
     @date   October 2022
     @brief  Main game module
  */

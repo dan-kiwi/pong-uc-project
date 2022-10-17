@@ -1,5 +1,5 @@
 /*  @file   game.h
-    @author group 219
+    @author Daniel Bishop & Bethany Kaye-Blake
     @date   October 2022
     @brief  Main game module
  */
@@ -36,8 +36,24 @@ typedef struct
     uint8_t right;
 } Paddle_t;
 
+/*
+ * Initialises the game by initialising all other files
+ */
 void init_sys (void);
 
+/*
+ * Initialises the game to play
+ */
 void init_game (void);
+
+/*
+ * Method called when the ball is on this computer
+ */
+void ballPlayer (void);
+
+/*
+ * Method called when ball is on opponent's computer
+ */
+void ballOpponent (void);
 
 #endif

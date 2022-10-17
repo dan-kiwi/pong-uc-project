@@ -1,5 +1,5 @@
 /*  @file   paddle.h
-    @author group 219
+    @author Daniel Bishop & Bethany Kaye-Blake
     @date   October 2022
     @brief  Pong paddle module
  */
@@ -29,12 +29,5 @@ void paddle_move (Paddle_t* paddle);
  * Draws the paddle using the tinygl files
  */
 void paddle_draw (Paddle_t* paddle);
-
-/*
- * Checks to see if the ball is colliding with the paddle
- * @param the ball in the game
- * @return boolean whether the ball collides
- */
-//bool ball_on_paddle (Ball_t ball);
 
 #endif

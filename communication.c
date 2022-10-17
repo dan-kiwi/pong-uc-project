@@ -1,5 +1,5 @@
 /*  @file   welcome.c
-    @author group 219
+    @author Daniel Bishop & Bethany Kaye-Blake
     @date   October 2022
     @brief  Pong start welcome screen module
  */
@@ -10,10 +10,8 @@
 #include "navswitch.h"
 #include "game.h"
 
-//bool static text_set = false;
-
 /*
- * Initialises the welcome screen with correct settings
+ * Initialises the screen with the correct text settings
  */
 void text_init (void)
 {
@@ -24,12 +22,21 @@ void text_init (void)
     tinygl_clear();
 }
 
+/*
+ * Sets welcome text
+ */
 void welcome_screen (void)
 {
     text_init();
     tinygl_text("WELCOME TO PONG");
 }
 
+/*
+ * Set's the game level for the pong game based on user input from navswitch
+ * If gamelevel changes, display_game_level() is called to update screen
+ * @param &gamelevel: takes address of gamelevel and updates it
+ * @return bool: if game level has been selected true, else false
+ */
 bool choose_game_level (uint8_t* gamelevel)
 {
 
@@ -60,6 +67,10 @@ bool choose_game_level (uint8_t* gamelevel)
     return false;
 }
 
+/*
+ * Takes a given gamelevel and displays the game level on screen
+ * @param gamelevel: an int which is the current game level
+ */
 void display_game_level (uint8_t gamelevel)
 {
     text_init();
@@ -73,24 +84,20 @@ void display_game_level (uint8_t gamelevel)
 
 }
 
-
+/*
+ * Display's the user has lost
+ */
 void lose_screen (void)
 {
     text_init();
     tinygl_text("LOST! PUSH TO PLAY AGAIN");
 }
 
+/*
+ * Display's the user has won
+ */
 void win_screen (void)
 {
     text_init();
     tinygl_text("LOST! PUSH TO PLAY AGAIN");
 }
-
-//void welcome_new_game_init(void)
-//{
-//    tinygl_font_set (&font3x5_1);
-//    tinygl_text_speed_set(TEXT_SPEED);
-//    tinygl_text_mode_set (TINYGL_TEXT_MODE_SCROLL);
-//    tinygl_text_dir_set (TINYGL_TEXT_DIR_ROTATE);
-//    tinygl_text("PUSH TO PLAY AGAIN");
-//}

@@ -1,5 +1,5 @@
 /*  @file   ball.c
-    @author group 219
+    @author Daniel Bishop & Bethany Kaye-Blake
     @date   October 2022
     @brief  Pong ball module
  */
@@ -86,9 +86,9 @@ bool ball_at_paddle(Ball_t* ball, Paddle_t paddle)
     return false;
 }
 
-/* 
- * Checks if ball is at the bounce row
- * Used to check if ball is at bounce and not at paddle and hence a loss
+/*
+ * Checks if ball is at the end row
+ * Used to check if ball is at end, not at paddle and hence a loss
  */
 bool ball_at_end(Ball_t* ball)
 {
@@ -106,7 +106,7 @@ bool ball_at_end(Ball_t* ball)
  */
 bool check_ball(Ball_t* ball)
 {
-    if (ball->row== ROW_END)
+    if (ball->row == TOP_MAX)
         return true;
     return false;
 }
