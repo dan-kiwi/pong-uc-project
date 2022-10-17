@@ -2,18 +2,28 @@ Pong by Daniel Bishop and Bethany Kaye-Blake
 
 This directory contains the required modules for a two-player pong game. When make is run it will read Makefile
 	
-make		-> builds the application for the ATmega32
-make program	-> programs the pong game into the ATmega32 flash memory
-make clean	-> deletes the object and executable files
+make		    -> builds the application for the ATmega
+make program	-> programs the pong game into the ATmega flash memory
+make clean	    -> deletes the object and executable files
 
-In order to start the game, one play must push the navswitch down. You can then set the level you wish to play out, which corresponds to the speed at which the ball moves. Once this has been set, once a player pushes the button, the game begins and the ball will bounce between the led mats until a player loses. At this point, if the player wishes to continue, they can push the navswitch to restart the game.
+
+How to play:
+
+In order to start the game, one play must push the navswitch down. 
+
+A player can then set the level you wish to play, which corresponds to the speed at which the ball moves. This is set using the navswitch left and right levers and confirmed by pushing the navswitch down.
+
+Then, once a player pushes the push button, the game begins with player 1 the player who pushed the button. The ball will bounce between the led mats until a player loses, which occurs when a player's paddle not directly under the ball when it hits. 
+
+At this point, if either player wishes to continue, they can push the navswitch to restart the game.
+
 
 The directory structure is:
 
-ball		    -> module detailing ball initialisation, movement and general game checks pertaining to the ball
-game		    -> module containing the main game, supported by helper modules
-paddle		    -> module detailing paddle initialisation, movement and led mat drawing
+ball		        -> module detailing ball initialisation, movement and general game checks pertaining to the ball
+game		        -> module containing the main game, supported by helper modules
+paddle		        -> module detailing paddle initialisation, movement and led mat drawing
 playerManagement    -> module containing functions to manage player interaction
 communication	    -> module for communication between players and game setup
-win		    -> module containing functions and such relating to game winning
+win		            -> module containing functions and such relating to game winning
 
