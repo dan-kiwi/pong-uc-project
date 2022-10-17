@@ -6,20 +6,24 @@
 
 #include "playerManagement.h"
 #include "ir_uart.h"
-#include "button.h"
+#include "game.h"
 
 #include <stdbool.h>
 
 
 
-bool check_player(void)
+uint8_t check_player(void)
 {
-    return ir_get_char() == STARTING_NUMBER;
+    char received = ir_get_char();
+    if (received == EASY_MODE || received == MEDIUM_MODE || received == HARD_MODE) {
+        return received;
+    }
+    return 0;
 }
 
-void send_player (void)
+void send_player (uint8_t gamelevel)
 {
-    ir_uart_putc(STARTING_NUMBER);
+    ir_uart_putc((char) gamelevel);
 }
 
 /*
@@ -29,7 +33,7 @@ void send_player (void)
  */
 void send_ball (Ball_t* ball, bool* player1)
 {
-    char to_send = ball->column << 1 | ball->right;
+    char to_send = (char) (ball->column << 1 | ball->right);
     ir_uart_putc(to_send);
     ball->row = BALL_OFF_SCREEN;
     *player1 = false;

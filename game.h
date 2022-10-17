@@ -19,6 +19,9 @@
 #define GAMEMODE_LOSS 3
 #define GAMEMODE_LEVELSET 4
 #define GAMELEVEL_NOT_SET 0
+#define EASY_MODE 100
+#define MEDIUM_MODE 75
+#define HARD_MODE 50
 
 typedef struct {
     uint8_t row;

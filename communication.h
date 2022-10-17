@@ -9,9 +9,6 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#define EASY_MODE 100
-#define MEDIUM_MODE 75
-#define HARD_MODE 50
 #define TEXT_SPEED 10
 
 void text_init (void);
