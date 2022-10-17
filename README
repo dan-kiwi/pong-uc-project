@@ -2,9 +2,9 @@ Pong by Daniel Bishop and Bethany Kaye-Blake
 
 This directory contains the required modules for a two-player pong game. When make is run it will read Makefile
 	
-make		    -> builds the application for the ATmega
+make		  -> builds the application for the ATmega
 make program	-> programs the pong game into the ATmega flash memory
-make clean	    -> deletes the object and executable files
+make clean	  -> deletes the object and executable files
 
 
 How to play:
@@ -20,10 +20,10 @@ At this point, if either player wishes to continue, they can push the navswitch 
 
 The directory structure is:
 
-ball		        -> module detailing ball initialisation, movement and general game checks pertaining to the ball
-game		        -> module containing the main game, supported by helper modules
-paddle		        -> module detailing paddle initialisation, movement and led mat drawing
+ball		      -> module detailing ball initialisation, movement and general game checks pertaining to the ball
+game		      -> module containing the main game, supported by helper modules
+paddle		      -> module detailing paddle initialisation, movement and led mat drawing
 playerManagement    -> module containing functions to manage player interaction
 communication	    -> module for communication between players and game setup
-win		            -> module containing functions and such relating to game winning
+win		        -> module containing functions and such relating to game winning
 
