@@ -16,7 +16,7 @@ all: game.out
 
 
 # Compile: create object files from C source files.
-game.o: game.c ../../drivers/avr/system.h game.h ../../utils/pacer.h ../../utils/tinygl.h ../../drivers/navswitch.h paddle.h ball.h welcome.h
+game.o: game.c ../../drivers/avr/system.h game.h ../../utils/pacer.h ../../utils/tinygl.h ../../drivers/navswitch.h paddle.h ball.h communication.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 prescale.o: ../../drivers/avr/prescale.c ../../drivers/avr/prescale.h ../../drivers/avr/system.h
@@ -58,7 +58,7 @@ paddle.o: paddle.c paddle.h game.h ../../utils/pacer.h ../../utils/tinygl.h ../.
 ball.o: ball.c ball.h ../../utils/tinygl.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-welcome.o: welcome.c welcome.h ../../utils/tinygl.h ../../fonts/font3x5_1.h
+welcome.o: communication.c communication.h ../../utils/tinygl.h ../../fonts/font3x5_1.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 playerManagement.o: playerManagement.c playerManagement.h ../../drivers/avr/ir_uart.h ../../drivers/button.h

@@ -12,7 +12,7 @@
 #include "pacer.h"
 #include "ball.h"
 #include "playerManagement.h"
-#include "welcome.h"
+#include "communication.h"
 #include "ir_uart.h"
 #include "button.h"
 #include "win.h"
@@ -87,16 +87,12 @@ void ballOpponent (void)
 int main (void)
 {
     init_sys();
-    
     while (1)
     {
-        pacer_wait ();
-        navswitch_update ();
         if (check_player()) {
             player1 = false;
             init_game();
-        }
-        if (gamemode == GAMEMODE_WELCOME) {
+        } else if (gamemode == GAMEMODE_WELCOME) {
             gamemode = start_screen();
         } else if (gamemode == GAMEMODE_LEVELSET) {
             if (choose_game_level(&gamelevel)) {
@@ -119,25 +115,9 @@ int main (void)
 
         }
 
-//        uint8_t gameover = check_gameover(&ball, paddle);
-//        if (gameover == 1) {
-//            win = false;
-//            gameover = true;
-//        } else if (gameover == 2) {
-//            win = true;
-//            gameover = true;
-//        }
-        
+        pacer_wait ();
+        navswitch_update ();
         tinygl_update ();
         counter++;
-//        check_player(&player1, &ball);
-        
-        //to start a new game
-//        if (gameover) {
-//            gameover = false;
-//
-//            repeat_game_screen();
-//            set_player(&player1);
-//        }
     }
 }

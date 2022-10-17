@@ -4,7 +4,7 @@
     @brief  Pong start welcome screen module
  */
 
-#include "welcome.h"
+#include "communication.h"
 #include "tinygl.h"
 #include "font3x5_1.h"
 #include "navswitch.h"
