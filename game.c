@@ -50,7 +50,7 @@ void init_game(void)
     paddle_init(&paddle);
     ball_init(&ball, player1);
     counter = 0;
-
+    gamemode = GAMEMODE_PLAY;
 }
 
 /*
@@ -62,14 +62,9 @@ void ballPlayer (void)
     if (counter >= gamelevel) {
         counter = 0;
         
-
+        gamemode = check_gameover(&ball, paddle);
         if (check_ball(&ball) && ball.forward) {
             send_ball(&ball, &player1);
-//            } else {
-//                if (check_if_lost(&ball, paddle)) {
-//                    send_loss();
-//                    gameover = true;
-//                }
         } else {
             ball_move(&ball, paddle);
         }
@@ -97,15 +92,16 @@ int main (void)
     {
         pacer_wait ();
         navswitch_update ();
+        if (check_player()) {
+            player1 = false;
+            init_game();
+        }
         if (gamemode == GAMEMODE_WELCOME) {
-            if (navswitch_push_event_p(NAVSWITCH_PUSH)) {
-                gamemode = GAMEMODE_LEVELSET;
-            }
+            gamemode = start_screen();
         } else if (gamemode == GAMEMODE_LEVELSET) {
             if (choose_game_level(&gamelevel)) {
-                gamemode = GAMEMODE_PLAY;
                 player1 = true;
-                set_player(&player1);
+                send_player();
                 init_game();
             }
         } else if (gamemode == GAMEMODE_PLAY) {

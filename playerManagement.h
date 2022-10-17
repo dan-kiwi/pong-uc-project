@@ -15,13 +15,9 @@
 #define BALL_OFF_SCREEN 10
 #define BUTTON_0 0
 
-/*
- * Player1 is set by the first board to push the Button
- * When the button is pushed, that board set player1
- * to true and sends over IR that the other board
- * is now not player1
- */
-bool set_player(bool* player1);
+bool check_player (void);
+
+void send_player (void);
 
 /*
  * Send the information of the ball through IR

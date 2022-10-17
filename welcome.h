@@ -22,4 +22,6 @@ bool choose_game_level (uint8_t* gamelevel);
 
 void display_game_level (uint8_t gamelevel);
 
+uint8_t start_screen (void);
+
 #endif //WELCOME_H

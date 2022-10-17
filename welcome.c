@@ -64,17 +64,6 @@ bool choose_game_level (uint8_t* gamelevel)
 void display_game_level (uint8_t gamelevel)
 {
     text_init();
-//    switch (gamelevel) {
-//        case EASY_MODE:
-//            tinygl_text("EASY");
-//            break;
-//        case MEDIUM_MODE:
-//            tinygl_text("MEDIUM");
-//            break;
-//        case HARD_MODE:
-//            tinygl_text("HARD");
-//            break;
-//    }
     if (gamelevel == EASY_MODE) {
         tinygl_text("EASY");
     } else if (gamelevel == MEDIUM_MODE) {
@@ -84,22 +73,15 @@ void display_game_level (uint8_t gamelevel)
     }
 
 }
-//
-//
-//void start_screen (uint8_t* gamemode, uint8_t* gamelevel)
-//{
-//   if (!text_set) {
-//       welcome_init();
-//   } else if (navswitch_push_event_p (NAVSWITCH_SOUTH)) {
-//       *gamemode = GAMEMODE_PLAY;
-//       text_set = false;
-//   }
-//}
 
-//uint8_t game_diff (void)
-//{
-//    return 1;
-//}
+
+uint8_t start_screen (void)
+{
+    if (navswitch_push_event_p(NAVSWITCH_PUSH)) {
+        return GAMEMODE_LEVELSET;
+    }
+}
+
 
 //void welcome_screen (void)
 //{

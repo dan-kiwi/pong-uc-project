@@ -59,3 +59,5 @@ uint8_t check_gameover (Ball_t* ball, Paddle_t paddle)
         return GAMEMODE_WIN;
     return GAMEMODE_PLAY;
 }
+
+
