@@ -94,7 +94,7 @@ int main (void)
             init_game();
         } else if (gamemode == GAMEMODE_WAITING) {
             if (navswitch_push_event_p(NAVSWITCH_PUSH)) {
-                return GAMEMODE_LEVELSET;
+                gamemode = GAMEMODE_LEVELSET;
             }
         } else if (gamemode == GAMEMODE_LEVELSET) {
             if (choose_game_level(&gamelevel)) {
@@ -116,9 +116,11 @@ int main (void)
         } else if (gamemode == GAMEMODE_LOSS) {
             lose_screen();
             gamemode = GAMEMODE_WAITING;
+            gamelevel = GAMELEVEL_NOT_SET;
         } else if (gamemode == GAMEMODE_WIN) {
             win_screen();
             gamemode = GAMEMODE_WAITING;
+            gamelevel = GAMELEVEL_NOT_SET;
         }
 
         pacer_wait ();

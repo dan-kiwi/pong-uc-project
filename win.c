@@ -16,7 +16,7 @@
  */
 bool check_if_local_lost(Ball_t* ball, Paddle_t paddle)
 {
-    if (ball_at_bounce_row(ball) && !ball_at_paddle(ball, paddle)) {
+    if (ball_at_end(ball) && !ball_at_paddle(ball, paddle)) {
         send_loss();
         return true;
     }
