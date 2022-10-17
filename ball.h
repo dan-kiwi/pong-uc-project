@@ -1,5 +1,5 @@
 /*  @file   ball.h
-    @auther group 219
+    @author group 219
     @date   October 2022
     @brief  Pong ball module
  */
