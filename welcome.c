@@ -7,50 +7,111 @@
 #include "welcome.h"
 #include "tinygl.h"
 #include "font3x5_1.h"
+#include "navswitch.h"
+#include "game.h"
+
+//bool static text_set = false;
 
 /*
  * Initialises the welcome screen with correct settings
  */
-void welcome_init (void)
+void text_init (void)
 {
     tinygl_font_set (&font3x5_1);
     tinygl_text_speed_set(TEXT_SPEED);
     tinygl_text_mode_set (TINYGL_TEXT_MODE_SCROLL);
     tinygl_text_dir_set (TINYGL_TEXT_DIR_ROTATE);
-    tinygl_text("WELCOME TO PONG");
+    tinygl_clear();
 }
 
-
-void start_screen (void)
+void welcome_init (void)
 {
-   tinygl_update();
+    text_init();
+    tinygl_text("WELCOME TO PONG");
+//    text_set = true;
 }
+
+bool choose_game_level (uint8_t* gamelevel)
+{
+
+    if (navswitch_push_event_p(NAVSWITCH_PUSH)) {
+        return true;
+    } else if (*gamelevel == GAMELEVEL_NOT_SET) {
+        display_game_level(*gamelevel);
+        *gamelevel = EASY_MODE;
+    } else if (*gamelevel == EASY_MODE) {
+        if (navswitch_push_event_p(NAVSWITCH_WEST)) {
+            display_game_level(*gamelevel);
+            *gamelevel = MEDIUM_MODE;
+        }
+    } else if (*gamelevel == MEDIUM_MODE) {
+        if (navswitch_push_event_p(NAVSWITCH_EAST)) {
+            display_game_level(*gamelevel);
+            *gamelevel = EASY_MODE;
+        } else if (navswitch_push_event_p(NAVSWITCH_WEST)) {
+            display_game_level(*gamelevel);
+            *gamelevel = MEDIUM_MODE;
+        }
+    } else if (*gamelevel == HARD_MODE) {
+        if (navswitch_push_event_p(NAVSWITCH_EAST)) {
+            display_game_level(*gamelevel);
+            *gamelevel = MEDIUM_MODE;
+        }
+    }
+    return false;
+}
+
+void display_game_level (uint8_t gamelevel)
+{
+    text_init();
+//    switch (gamelevel) {
+//        case EASY_MODE:
+//            tinygl_text("EASY");
+//            break;
+//        case MEDIUM_MODE:
+//            tinygl_text("MEDIUM");
+//            break;
+//        case HARD_MODE:
+//            tinygl_text("HARD");
+//            break;
+//    }
+    if (gamelevel == EASY_MODE) {
+        tinygl_text("EASY");
+    } else if (gamelevel == MEDIUM_MODE) {
+        tinygl_text("MEDIUM");
+    } else {
+        tinygl_text("HARD");
+    }
+
+}
+//
+//
+//void start_screen (uint8_t* gamemode, uint8_t* gamelevel)
+//{
+//   if (!text_set) {
+//       welcome_init();
+//   } else if (navswitch_push_event_p (NAVSWITCH_SOUTH)) {
+//       *gamemode = GAMEMODE_PLAY;
+//       text_set = false;
+//   }
+//}
 
 //uint8_t game_diff (void)
 //{
 //    return 1;
 //}
 
-void welcome_screen (void)
-{
-    welcome_init();
-    start_screen();
-}
-
-void welcome_new_game_init(void)
-{
-    tinygl_font_set (&font3x5_1);
-    tinygl_text_speed_set(TEXT_SPEED);
-    tinygl_text_mode_set (TINYGL_TEXT_MODE_SCROLL);
-    tinygl_text_dir_set (TINYGL_TEXT_DIR_ROTATE);
-    tinygl_text("PUSH TO PLAY AGAIN");
-}
-
-//void repeat_game_screen(void)
+//void welcome_screen (void)
 //{
-//    welcome_new_game_init();
-//    tinygl_update();
-//    do {
-//        navswitch_update();
-//    } while (!(navswitch_push_event_p(NAVSWITCH_PUSH)));
+//    welcome_init();
+//    start_screen();
+//}
+
+//void welcome_new_game_init(void)
+//{
+//    tinygl_font_set (&font3x5_1);
+//    tinygl_text_speed_set(TEXT_SPEED);
+//    tinygl_text_mode_set (TINYGL_TEXT_MODE_SCROLL);
+//    tinygl_text_dir_set (TINYGL_TEXT_DIR_ROTATE);
+//    tinygl_text("PUSH TO PLAY AGAIN");
 //}

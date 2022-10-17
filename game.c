@@ -24,6 +24,7 @@ Ball_t ball;
 Paddle_t paddle;
 bool player1;
 uint8_t gamemode;
+uint8_t gamelevel;
 
 /*
  * Initialises the game by initialising all other files
@@ -37,9 +38,8 @@ void init_sys (void)
     ir_uart_init();
     button_init();
     welcome_init();
-    paddle_init(&paddle);
-    ball_init(&ball, player1);
-    counter = 0;
+    gamemode = GAMEMODE_WELCOME;
+    gamelevel = GAMELEVEL_NOT_SET;
 }
 
 /*
@@ -47,8 +47,9 @@ void init_sys (void)
  */
 void init_game(void)
 {
-
-    set_player(&player1);
+    paddle_init(&paddle);
+    ball_init(&ball, player1);
+    counter = 0;
 
 }
 
@@ -91,35 +92,45 @@ void ballOpponent (void)
 int main (void)
 {
     init_sys();
-    while (!set_player(&player1)) {
-        start_screen();
-        pacer_wait();
-    }
-    init_game();
     
     while (1)
     {
         pacer_wait ();
         navswitch_update ();
-        tinygl_clear();
+        if (gamemode == GAMEMODE_WELCOME) {
+            if (navswitch_push_event_p(NAVSWITCH_PUSH)) {
+                gamemode = GAMEMODE_LEVELSET;
+            }
+        } else if (gamemode == GAMEMODE_LEVELSET) {
+            if (choose_game_level(&gamelevel)) {
+                gamemode = GAMEMODE_PLAY;
+                player1 = true;
+                set_player(&player1);
+                init_game();
+            }
+        } else if (gamemode == GAMEMODE_PLAY) {
+            tinygl_clear();
+            paddle_move(&paddle);
+            paddle_draw(&paddle);
 
-        paddle_move(&paddle);
-        paddle_draw(&paddle);
+            if (player1 || SINGLE_PLAYER)
+                ballPlayer();
+            else {
+                ballOpponent();
+                counter = 0;
+            }
+        } else if (gamemode == GAMEMODE_LOSS) {
 
-        if (player1 || SINGLE_PLAYER)
-            ballPlayer();
-        else {
-            ballOpponent();
-            counter = 0;
         }
-        uint8_t gameover = check_gameover(&ball, paddle);
-        if (gameover == 1) {
-            win = false;
-            gameover = true;
-        } else if (gameover == 2) {
-            win = true;
-            gameover = true;
-        }
+
+//        uint8_t gameover = check_gameover(&ball, paddle);
+//        if (gameover == 1) {
+//            win = false;
+//            gameover = true;
+//        } else if (gameover == 2) {
+//            win = true;
+//            gameover = true;
+//        }
         
         tinygl_update ();
         counter++;

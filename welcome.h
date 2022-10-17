@@ -7,22 +7,19 @@
 #define WELCOME_H
 
 #include <stdint.h>
+#include <stdbool.h>
 
 #define EASY_MODE 100
 #define MEDIUM_MODE 75
 #define HARD_MODE 50
 #define TEXT_SPEED 10
 
+void text_init (void);
+
 void welcome_init (void);
 
-void start_screen (void);
+bool choose_game_level (uint8_t* gamelevel);
 
-//uint8_t game_diff (void);
-
-void welcome_screen (void);
-
-//void repeat_game_screen(void);
-
-//void repeat_game_screen(void);
+void display_game_level (uint8_t gamelevel);
 
 #endif //WELCOME_H

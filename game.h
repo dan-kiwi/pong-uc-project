@@ -17,6 +17,8 @@
 #define GAMEMODE_PLAY 1
 #define GAMEMODE_WIN 2
 #define GAMEMODE_LOSS 3
+#define GAMEMODE_LEVELSET 4
+#define GAMELEVEL_NOT_SET 0
 
 typedef struct {
     uint8_t row;
