@@ -99,7 +99,7 @@ int main (void)
         } else if (gamemode == GAMEMODE_LEVELSET) {
             if (choose_game_level(&gamelevel)) {
                 player1 = true;
-                send_player();
+                send_player(gamelevel);
                 init_game();
             }
         } else if (gamemode == GAMEMODE_PLAY) {
