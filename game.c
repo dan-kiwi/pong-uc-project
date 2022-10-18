@@ -63,7 +63,7 @@ void ballPlayer (char ir_info)
     if (counter >= gamelevel) {
         counter = 0;
         
-        gamemode = check_gameover(&ball, paddle, ir_info);
+
         if (check_ball(&ball) && ball.forward) {
             send_ball(&ball, &player1);
         } else {
@@ -99,12 +99,12 @@ int main (void)
             tinygl_clear();
             paddle_move(&paddle);
             paddle_draw(&paddle);
-
             if (player1 || SINGLE_PLAYER)
                 ballPlayer(ir_info);
             else {
                 ballOpponent(ir_info);
             }
+            gamemode = check_gameover(&ball, paddle, ir_info);
         } else if (opponentStart) {
             gamelevel = opponentStart;
             player1 = false;
