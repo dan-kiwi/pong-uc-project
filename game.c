@@ -59,7 +59,7 @@ void init_game(void)
 void ballPlayer (void)
 {
     ball_draw(&ball);
-    if (counter >= gamelevel) {
+    if (counter >= 100) {
         counter = 0;
         
         gamemode = check_gameover(&ball, paddle);
