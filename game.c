@@ -115,7 +115,6 @@ int main (void)
                 ballPlayer();
             else {
                 ballOpponent();
-                counter = 0;
             }
         }
 //        else if (gamemode == GAMEMODE_LOSS) {
