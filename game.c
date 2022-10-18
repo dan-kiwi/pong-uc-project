@@ -56,14 +56,14 @@ void init_game(void)
 /*
  * Method called when the ball is on this computer
  */
-void ballPlayer (char ir_info)
+void ballPlayer (void)
 {
     ball_draw(&ball);
 
     if (counter >= 100) {
         counter = 0;
         
-        gamemode = check_gameover(&ball, paddle, ir_info);
+        gamemode = check_gameover(&ball, paddle);
         if (check_ball(&ball) && ball.forward) {
             send_ball(&ball, &player1);
         } else {
@@ -95,43 +95,46 @@ int main (void)
     while (1)
     {
         ir_info = ir_get_char();
-        uint8_t opponentStart = check_player(ir_info);
         if (gamemode == GAMEMODE_PLAY) {
             tinygl_clear();
             paddle_move(&paddle);
             paddle_draw(&paddle);
 
             if (player1 || SINGLE_PLAYER)
-                ballPlayer(ir_info);
+                ballPlayer();
             else {
                 ballOpponent(ir_info);
             }
-        } else if (opponentStart) {
-            gamelevel = opponentStart;
-            player1 = false;
-            init_game();
-        } else if (gamemode == GAMEMODE_WAITING) {
-            if (navswitch_push_event_p(NAVSWITCH_PUSH)) {
-                gamemode = GAMEMODE_LEVELSET;
-            }
-        } else if (gamemode == GAMEMODE_LEVELSET) {
-            if (choose_game_level(&gamelevel)) {
-                player1 = true;
-                send_player(gamelevel);
+        } else {
+            uint8_t opponentStart = check_player(ir_info);
+            if (opponentStart) {
+                gamelevel = opponentStart;
+                player1 = false;
                 init_game();
+            } else if (gamemode == GAMEMODE_WAITING) {
+                if (navswitch_push_event_p(NAVSWITCH_PUSH)) {
+                    gamemode = GAMEMODE_LEVELSET;
+                }
+            } else if (gamemode == GAMEMODE_LEVELSET) {
+                if (choose_game_level(&gamelevel)) {
+                    player1 = true;
+                    send_player(gamelevel);
+                    init_game();
+                }
             }
-        } else if (gamemode == GAMEMODE_LOSS) {
-            lose_screen();
-            gamemode = GAMEMODE_WAITING;
-            gamelevel = GAMELEVEL_NOT_SET;
-        } else if (gamemode == GAMEMODE_WIN) {
-            win_screen();
-            gamemode = GAMEMODE_WAITING;
-            gamelevel = GAMELEVEL_NOT_SET;
+//        else if (gamemode == GAMEMODE_LOSS) {
+//            lose_screen();
+//            gamemode = GAMEMODE_WAITING;
+//            gamelevel = GAMELEVEL_NOT_SET;
+//        } else if (gamemode == GAMEMODE_WIN) {
+//            win_screen();
+//            gamemode = GAMEMODE_WAITING;
+//            gamelevel = GAMELEVEL_NOT_SET;
+//        }
         }
-    }
         pacer_wait ();
         navswitch_update ();
         tinygl_update ();
         counter++;
+    }
 }
