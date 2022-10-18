@@ -54,6 +54,6 @@ void ballPlayer (void);
 /*
  * Method called when ball is on opponent's computer
  */
-void ballOpponent (void);
+void ballOpponent (char ir_info);
 
 #endif

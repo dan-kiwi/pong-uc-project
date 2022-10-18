@@ -15,9 +15,8 @@
  * Check's to see if the opponent's computer has started the game
  * @return uint8_t: the gamelevel if game started, 0 else
  */
-uint8_t check_player(void)
+uint8_t check_player(char received)
 {
-    char received = ir_get_char();
     if (received == EASY_MODE || received == MEDIUM_MODE || received == HARD_MODE) {
         return received;
     }
@@ -63,10 +62,9 @@ char ir_get_char(void)
  * The LSB is whether the ball if traveling right
  * The next three LSB's are the ball's column 0-6
  */
-void receive_ball (Ball_t* ball, bool* player1)
+void receive_ball (Ball_t* ball, bool* player1, char received)
 {
     tinygl_draw_point(tinygl_point(0,0), true);
-    char received = ir_get_char();
     if (received != 127) {
         ball->right = ~(received & 1);
         ball->column = RIGHT_MAX - (received >> 1);

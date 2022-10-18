@@ -26,7 +26,7 @@ void send_ball (Ball_t* ball, bool* player1);
  * The LSB is whether the ball if traveling right
  * The next three LSB's are the ball's column 0-6
  */
-void receive_ball (Ball_t* ball, bool* player1);
+void receive_ball (Ball_t* ball, bool* player1, char received);
 
 /*
  * Gets the char from the IR receiver
@@ -37,7 +37,7 @@ char ir_get_char (void);
  * Check's to see if the opponent's computer has started the game
  * @return uint8_t: the gamelevel if game started, 0 else
  */
-uint8_t check_player (void);
+uint8_t check_player (char received);
 
 /*
  * Send's the current gamelevel to the opponent. Starts game

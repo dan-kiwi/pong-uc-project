@@ -76,10 +76,10 @@ void ballPlayer (void)
 /*
  * Method called when ball is on opponent's computer
  */
-void ballOpponent (void)
+void ballOpponent (char ir_info)
 {
 
-    receive_ball(&ball, &player1);
+    receive_ball(&ball, &player1, ir_info);
     ball_draw(&ball);
 }
 
@@ -88,11 +88,13 @@ void ballOpponent (void)
  */
 int main (void)
 {
+    char ir_info;
     init_sys();
 //    init_game();
 //    player1 = true;
     while (1)
     {
+        ir_info = ir_get_char();
         if (gamemode == GAMEMODE_PLAY) {
             tinygl_clear();
             paddle_move(&paddle);
@@ -101,10 +103,10 @@ int main (void)
             if (player1 || SINGLE_PLAYER)
                 ballPlayer();
             else {
-                ballOpponent();
+                ballOpponent(ir_info);
             }
         } else {
-            uint8_t opponentStart = check_player();
+            uint8_t opponentStart = check_player(ir_info);
             if (opponentStart) {
                 gamelevel = opponentStart;
                 player1 = false;
