@@ -37,7 +37,7 @@ void init_sys (void)
     navswitch_init();
     ir_uart_init();
     button_init();
-    welcome_screen();
+//    welcome_screen();
     gamemode = GAMEMODE_WAITING;
     gamelevel = GAMELEVEL_NOT_SET;
 }
@@ -89,10 +89,22 @@ void ballOpponent (void)
 int main (void)
 {
     init_sys();
+//    init_game();
+//    player1 = true;
     while (1)
     {
         uint8_t opponentStart = check_player();
-        if (opponentStart) {
+        if (gamemode == GAMEMODE_PLAY) {
+            tinygl_clear();
+            paddle_move(&paddle);
+            paddle_draw(&paddle);
+
+            if (player1 || SINGLE_PLAYER)
+                ballPlayer();
+            else {
+                ballOpponent();
+            }
+        } else if (opponentStart) {
             gamelevel = opponentStart;
             player1 = false;
             init_game();
@@ -105,16 +117,6 @@ int main (void)
                 player1 = true;
                 send_player(gamelevel);
                 init_game();
-            }
-        } else if (gamemode == GAMEMODE_PLAY) {
-            tinygl_clear();
-            paddle_move(&paddle);
-            paddle_draw(&paddle);
-
-            if (player1 || SINGLE_PLAYER)
-                ballPlayer();
-            else {
-                ballOpponent();
             }
         }
 //        else if (gamemode == GAMEMODE_LOSS) {
