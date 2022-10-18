@@ -59,6 +59,7 @@ void init_game(void)
 void ballPlayer (void)
 {
     ball_draw(&ball);
+    tinygl_draw_point(tinygl_point(0,0), true);
     if (counter >= 100) {
         counter = 0;
         
