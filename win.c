@@ -36,13 +36,9 @@ void send_loss (void)
 /*
  *Checks to see if other player has lost, amd hence this player has won
  */
-bool check_if_opponent_lost(void)
+bool check_if_opponent_lost(char ir_info)
 {
-    char received = 0;
-    if (ir_uart_read_ready_p()) {
-        received = ir_uart_getc();
-    }
-    return received == LOSS_CHAR;
+    return ir_info == LOSS_CHAR;
 }
 
 /*
@@ -51,11 +47,11 @@ bool check_if_opponent_lost(void)
  * Return one for local lost
  * Return two for opponent lost
  */
-uint8_t check_gameover (Ball_t* ball, Paddle_t paddle)
+uint8_t check_gameover (Ball_t* ball, Paddle_t paddle, char ir_info)
 {
     if (check_if_local_lost(ball, paddle))
         return GAMEMODE_LOSS;
-    if (check_if_opponent_lost())
+    if (check_if_opponent_lost(ir_info))
         return GAMEMODE_WIN;
     return GAMEMODE_PLAY;
 }

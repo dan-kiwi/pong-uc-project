@@ -31,7 +31,7 @@ void send_loss(void);
 /*
  *Checks to see if other player has lost, amd hence this player has won
  */
-bool check_if_opponent_lost(void);
+bool check_if_opponent_lost(char ir_info);
 
 /*
  * Check's if the game is over
@@ -39,6 +39,6 @@ bool check_if_opponent_lost(void);
  * Return one for local lost
  * Return two for opponent lost
  */
-uint8_t check_gameover (Ball_t* ball, Paddle_t paddle);
+uint8_t check_gameover (Ball_t* ball, Paddle_t paddle, char ir_info);
 
 #endif /* win_h */
