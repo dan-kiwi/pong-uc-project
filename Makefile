@@ -58,16 +58,13 @@ paddle.o: paddle.c paddle.h game.h ../../utils/pacer.h ../../utils/tinygl.h ../.
 ball.o: ball.c ball.h ../../utils/tinygl.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-welcome.o: communication.c communication.h ../../utils/tinygl.h ../../fonts/font3x5_1.h ../../utils/tinygl.h
+welcome.o: communication.c communication.h ../../utils/tinygl.h ../../fonts/font3x5_1.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-playerManagement.o: playerManagement.c playerManagement.h ../../drivers/avr/ir_uart.h ../../drivers/button.h
+playerManagement.o: playerManagement.c playerManagement.h ../../drivers/avr/ir_uart.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 ir_uart.o: ../../drivers/avr/ir_uart.c ../../drivers/avr/ir_uart.h ../../drivers/avr/pio.h ../../drivers/avr/system.h ../../drivers/avr/timer0.h ../../drivers/avr/usart1.h
-	$(CC) -c $(CFLAGS) $< -o $@
-
-button.o: ../../drivers/button.c ../../drivers/button.h ../../drivers/avr/system.h ../../drivers/avr/pio.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 win.o: win.c win.h ball.h ../../drivers/avr/ir_uart.h game.h

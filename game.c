@@ -60,7 +60,7 @@ void ballPlayer (char ir_info)
 {
     ball_draw(&ball);
 
-    if (counter >= 100) {
+    if (counter >= gamelevel) {
         counter = 0;
         
         gamemode = check_gameover(&ball, paddle, ir_info);
