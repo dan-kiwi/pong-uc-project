@@ -64,6 +64,7 @@ char ir_get_char(void)
  */
 void receive_ball (Ball_t* ball, bool* player1)
 {
+
     char received = ir_get_char();
     if (received) {
         ball->right = ~(received & 1);

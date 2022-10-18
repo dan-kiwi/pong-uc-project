@@ -59,7 +59,7 @@ void init_game(void)
 void ballPlayer (void)
 {
     ball_draw(&ball);
-    tinygl_draw_point(tinygl_point(0,0), true);
+
     if (counter >= 100) {
         counter = 0;
         
@@ -78,6 +78,7 @@ void ballPlayer (void)
  */
 void ballOpponent (void)
 {
+    tinygl_draw_point(tinygl_point(0,0), true);
     receive_ball(&ball, &player1);
     ball_draw(&ball);
 }
@@ -116,15 +117,16 @@ int main (void)
                 ballOpponent();
                 counter = 0;
             }
-        } else if (gamemode == GAMEMODE_LOSS) {
-            lose_screen();
-            gamemode = GAMEMODE_WAITING;
-            gamelevel = GAMELEVEL_NOT_SET;
-        } else if (gamemode == GAMEMODE_WIN) {
-            win_screen();
-            gamemode = GAMEMODE_WAITING;
-            gamelevel = GAMELEVEL_NOT_SET;
         }
+//        else if (gamemode == GAMEMODE_LOSS) {
+//            lose_screen();
+//            gamemode = GAMEMODE_WAITING;
+//            gamelevel = GAMELEVEL_NOT_SET;
+//        } else if (gamemode == GAMEMODE_WIN) {
+//            win_screen();
+//            gamemode = GAMEMODE_WAITING;
+//            gamelevel = GAMELEVEL_NOT_SET;
+//        }
 
         pacer_wait ();
         navswitch_update ();
