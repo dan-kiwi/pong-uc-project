@@ -98,7 +98,7 @@ int main (void)
             tinygl_clear();
             paddle_move(&paddle);
             paddle_draw(&paddle);
-            if (player1 || SINGLE_PLAYER)
+            if (player1)
                 ballPlayer();
             else {
                 ballOpponent(ir_info);

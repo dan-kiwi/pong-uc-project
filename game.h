@@ -12,7 +12,6 @@
 #define RIGHT_MAX 6
 #define BOTTOM_MAX 4
 #define TOP_MAX 0
-#define SINGLE_PLAYER false
 #define GAMEMODE_WAITING 0
 #define GAMEMODE_PLAY 1
 #define GAMEMODE_WIN 2
