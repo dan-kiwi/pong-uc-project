@@ -51,10 +51,10 @@ void send_ball (Ball_t* ball, bool* player1)
  */
 char ir_get_char(void)
 {
-    char received = 0;
-    if (ir_uart_read_ready_p()) {
-        received = ir_uart_getc();
-    }
+    char received = ir_uart_getc();
+//    if (ir_uart_read_ready_p()) {
+//        received = ir_uart_getc();
+//    }
     return received;
 }
 
