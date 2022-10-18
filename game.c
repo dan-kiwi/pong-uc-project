@@ -83,6 +83,8 @@ void ballOpponent (char ir_info)
 
 /*
  * Main game function
+ * The main cycles through checking for each gamemode.
+ * Different lines execute based on what gamemode variable is equal to
  */
 int main (void)
 {
@@ -91,9 +93,9 @@ int main (void)
 
     while (1)
     {
-        ir_info = ir_get_char();
-        uint8_t opponentStart = check_player(ir_info);
-        if (gamemode == GAMEMODE_PLAY) {
+        ir_info = ir_get_char(); //gets the IR receiver info to pass through to functions
+        uint8_t opponentStart = check_player(ir_info); // check's if opponent computer has started
+        if (gamemode == GAMEMODE_PLAY) { //main gameplay function
             tinygl_clear();
             paddle_move(&paddle);
             paddle_draw(&paddle);
@@ -103,25 +105,25 @@ int main (void)
                 ballOpponent(ir_info);
             }
             gamemode = check_gameover(&ball, paddle, ir_info);
-        } else if (opponentStart) {
+        } else if (opponentStart) { //called when opponent has started
             gamelevel = opponentStart;
             player1 = false;
             init_game();
-        } else if (gamemode == GAMEMODE_WAITING) {
+        } else if (gamemode == GAMEMODE_WAITING) { //waiting to start game
             if (navswitch_push_event_p(NAVSWITCH_PUSH)) {
                 gamemode = GAMEMODE_LEVELSET;
             }
-        } else if (gamemode == GAMEMODE_LEVELSET) {
+        } else if (gamemode == GAMEMODE_LEVELSET) { //setting level of game
             if (choose_game_level(&gamelevel)) {
                 player1 = true;
                 send_player(gamelevel);
                 init_game();
             }
-        } else if (gamemode == GAMEMODE_LOSS) {
+        } else if (gamemode == GAMEMODE_LOSS) { //when local computer has lost
             lose_screen();
             gamemode = GAMEMODE_WAITING;
             gamelevel = GAMELEVEL_NOT_SET;
-        } else if (gamemode == GAMEMODE_WIN) {
+        } else if (gamemode == GAMEMODE_WIN) { //when local computer has won
             win_screen();
             gamemode = GAMEMODE_WAITING;
             gamelevel = GAMELEVEL_NOT_SET;
