@@ -71,7 +71,7 @@ win.o: win.c win.h ball.h ../../drivers/avr/ir_uart.h game.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 # Link: create ELF output file from object files.
-game.out: game.o system.o timer.o prescale.o timer0.o usart1.o display.o ledmat.o navswitch.o font.o pacer.o tinygl.o paddle.o ball.o welcome.o playerManagement.o ir_uart.o button.o win.o
+game.out: game.o system.o timer.o prescale.o timer0.o usart1.o display.o ledmat.o navswitch.o font.o pacer.o tinygl.o paddle.o ball.o welcome.o playerManagement.o ir_uart.o win.o
 	$(CC) $(CFLAGS) $^ -o $@ -lm
 	$(SIZE) $@
 

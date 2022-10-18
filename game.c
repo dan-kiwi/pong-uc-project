@@ -14,7 +14,6 @@
 #include "playerManagement.h"
 #include "communication.h"
 #include "ir_uart.h"
-#include "button.h"
 #include "win.h"
 
 #include <stdint.h>
@@ -36,7 +35,6 @@ void init_sys (void)
     pacer_init(PACER_RATE);
     navswitch_init();
     ir_uart_init();
-    button_init();
     welcome_screen();
     gamemode = GAMEMODE_WAITING;
     gamelevel = GAMELEVEL_NOT_SET;
