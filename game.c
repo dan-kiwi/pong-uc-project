@@ -78,9 +78,9 @@ void ballPlayer (char ir_info)
  */
 void ballOpponent (char ir_info)
 {
-
     receive_ball(&ball, &player1, ir_info);
     ball_draw(&ball);
+    counter = 0;
 }
 
 /*
