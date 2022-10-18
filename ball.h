@@ -11,7 +11,7 @@
 #include <stdbool.h>
 #include "game.h"
 
-#define COLUMN_START LEFT_MAX + 2
+#define COLUMN_START LEFT_MAX + 3
 #define ROW_START TOP_MAX
 #define BALL_RIGHT false
 #define BALL_FORWARD false
