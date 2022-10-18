@@ -51,10 +51,10 @@ void send_ball (Ball_t* ball, bool* player1)
  */
 char ir_get_char(void)
 {
-    char received = ir_uart_getc();
-//    if (ir_uart_read_ready_p()) {
-//        received = ir_uart_getc();
-//    }
+    char received = 127;
+    if (ir_uart_read_ready_p()) {
+        received = ir_uart_getc();
+    }
     return received;
 }
 
@@ -67,7 +67,7 @@ void receive_ball (Ball_t* ball, bool* player1)
 {
     tinygl_draw_point(tinygl_point(0,0), true);
     char received = ir_get_char();
-    if (received) {
+    if (received != 127) {
         ball->right = ~(received & 1);
         ball->column = RIGHT_MAX - (received >> 1);
         ball->row = TOP_MAX;
