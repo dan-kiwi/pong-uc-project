@@ -78,7 +78,7 @@ void ballPlayer (void)
  */
 void ballOpponent (void)
 {
-    tinygl_draw_point(tinygl_point(0,0), true);
+
     receive_ball(&ball, &player1);
     ball_draw(&ball);
 }

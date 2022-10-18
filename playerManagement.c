@@ -7,6 +7,7 @@
 #include "playerManagement.h"
 #include "ir_uart.h"
 #include "game.h"
+#include "tinygl.h"
 
 #include <stdbool.h>
 
@@ -64,7 +65,7 @@ char ir_get_char(void)
  */
 void receive_ball (Ball_t* ball, bool* player1)
 {
-
+    tinygl_draw_point(tinygl_point(0,0), true);
     char received = ir_get_char();
     if (received) {
         ball->right = ~(received & 1);

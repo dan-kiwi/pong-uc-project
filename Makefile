@@ -58,7 +58,7 @@ paddle.o: paddle.c paddle.h game.h ../../utils/pacer.h ../../utils/tinygl.h ../.
 ball.o: ball.c ball.h ../../utils/tinygl.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-welcome.o: communication.c communication.h ../../utils/tinygl.h ../../fonts/font3x5_1.h
+welcome.o: communication.c communication.h ../../utils/tinygl.h ../../fonts/font3x5_1.h ../../utils/tinygl.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 playerManagement.o: playerManagement.c playerManagement.h ../../drivers/avr/ir_uart.h ../../drivers/button.h
