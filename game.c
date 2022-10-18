@@ -89,7 +89,9 @@ int main (void)
     init_sys();
     while (1)
     {
-        if (check_player()) {
+        uint8_t opponentStart = check_player();
+        if (opponentStart) {
+            gamelevel = opponentStart;
             player1 = false;
             init_game();
         } else if (gamemode == GAMEMODE_WAITING) {
