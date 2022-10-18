@@ -39,7 +39,7 @@ void send_player (uint8_t gamelevel)
  */
 void send_ball (Ball_t* ball, bool* player1)
 {
-    char to_send = (ball->column << 1 | ball->right);
+    char to_send = (ball->column << 1 | (ball->right & 1));
     ir_uart_putc(to_send);
     ball->row = BALL_OFF_SCREEN;
     *player1 = false;
@@ -65,12 +65,12 @@ char ir_get_char(void)
 void receive_ball (Ball_t* ball, bool* player1, char received)
 {
     if (received >= 0 && received <= 11) {
-        ball->right = ~(received & 1);
+        ball->right = 1 ^ (received & 1);
         ball->column = RIGHT_MAX - (received >> 1);
         ball->row = TOP_MAX;
         ball->forward = false;
         *player1 = true;
-        ball_move_column(ball);
+//        ball_move_column(ball);
 
     }
 }
