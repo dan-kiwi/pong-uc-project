@@ -25,11 +25,12 @@ bool check_if_local_lost(Ball_t* ball, Paddle_t paddle)
 
 
 /*
- * Sends the character "L" if player has lost
+ * Sends the character LOSS_CHAR if player has lost
  */
 void send_loss (void)
 {
-    ir_uart_putc(LOSS_CHAR);
+    if (ir_uart_write_ready_p())
+        ir_uart_putc(LOSS_CHAR);
 }
 
 
