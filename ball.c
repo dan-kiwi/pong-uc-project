@@ -37,19 +37,8 @@ void ball_draw (Ball_t* ball)
     tinygl_draw_point(ball_point, true);
 }
 
-
-/*
- * Moves the ball based on two boolean variables in Ball_t
- * Also checks if the ball is hitting the paddle. If so, it reverses the direction
- */
-void ball_move(Ball_t* ball, Paddle_t paddle)
+void ball_move_column(Ball_t* ball)
 {
-
-    if (ball->forward)
-        ball->row--;
-    else
-        ball->row++;
-
     if (ball->right) {
         ball->column++;
 
@@ -65,10 +54,20 @@ void ball_move(Ball_t* ball, Paddle_t paddle)
             ball->right = true;
         }
     }
+}
 
-    if (SINGLE_PLAYER && ball->row == 0) {
-        ball->forward = false;
-    }
+/*
+ * Moves the ball based on two boolean variables in Ball_t
+ * Also checks if the ball is hitting the paddle. If so, it reverses the direction
+ */
+void ball_move(Ball_t* ball, Paddle_t paddle)
+{
+
+    if (ball->forward)
+        ball->row--;
+    else
+        ball->row++;
+    ball_move_column(ball);
     if (ball_at_paddle(ball, paddle)) {
         ball->forward = true;
     }

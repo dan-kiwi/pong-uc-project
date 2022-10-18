@@ -59,10 +59,8 @@ void init_game(void)
 void ballPlayer ()
 {
     ball_draw(&ball);
-    tinygl_draw_point(tinygl_point(2,2), true);
     if (counter >= gamelevel) {
         counter = 0;
-        
 
         if (check_ball(&ball) && ball.forward) {
             send_ball(&ball, &player1);

@@ -70,7 +70,6 @@ void receive_ball (Ball_t* ball, bool* player1, char received)
         ball->row = TOP_MAX;
         ball->forward = false;
         *player1 = true;
-//        ball_move_column(ball);
         if (ball->column == LEFT_MAX) {
             ball->column = LEFT_MAX + 1;
         } else if (ball->column == RIGHT_MAX) {
