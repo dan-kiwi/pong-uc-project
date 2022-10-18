@@ -74,13 +74,12 @@ bool choose_game_level (uint8_t* gamelevel)
 void display_game_level (uint8_t gamelevel)
 {
     text_init();
-    if (gamelevel == EASY_MODE) {
+    if (gamelevel == EASY_MODE)
         tinygl_text("EASY");
-    } else if (gamelevel == MEDIUM_MODE) {
+    else if (gamelevel == MEDIUM_MODE)
         tinygl_text("MEDIUM");
-    } else {
+    else
         tinygl_text("HARD");
-    }
 
 }
 

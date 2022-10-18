@@ -18,9 +18,8 @@
  */
 uint8_t check_player(char received)
 {
-    if (received == EASY_MODE || received == MEDIUM_MODE || received == HARD_MODE) {
+    if (received == EASY_MODE || received == MEDIUM_MODE || received == HARD_MODE)
         return received;
-    }
     return 0;
 }
 
@@ -54,9 +53,8 @@ void send_ball (Ball_t* ball, bool* player1)
 char ir_get_char(void)
 {
     char received = 127;
-    if (ir_uart_read_ready_p()) {
+    if (ir_uart_read_ready_p())
         received = ir_uart_getc();
-    }
     return received;
 }
 
@@ -76,12 +74,11 @@ void receive_ball (Ball_t* ball, bool* player1, char received)
         ball->row = TOP_MAX;
         ball->forward = false;
         *player1 = true;
-        if (ball->column == LEFT_MAX) {
+        if (ball->column == LEFT_MAX)
             ball->column = LEFT_MAX + 1;
-        } else if (ball->column == RIGHT_MAX) {
+        else if (ball->column == RIGHT_MAX)
             ball->column = RIGHT_MAX - 1;
-        } else {
+        else
             ball_move_column(ball);
-        }
     }
 }

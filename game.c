@@ -59,12 +59,11 @@ void ballPlayer ()
     ball_draw(&ball);
     if (counter >= gamelevel) {
         counter = 0;
-
-        if (check_ball(&ball) && ball.forward) {
+        
+        if (check_ball(&ball) && ball.forward)
             send_ball(&ball, &player1);
-        } else {
+        else
             ball_move(&ball, paddle);
-        }
     }
 }
 
@@ -98,11 +97,10 @@ int main (void)
             paddle_move(&paddle);
             paddle_draw(&paddle);
             
-            if (player1) {
+            if (player1)
                 ballPlayer();
-            } else {
+            else
                 ballOpponent(ir_info);
-            }
             
             gamemode = check_gameover(&ball, paddle, ir_info);
             
@@ -112,9 +110,8 @@ int main (void)
             init_game();
             
         } else if (gamemode == GAMEMODE_WAITING) { //waiting to start game
-            if (navswitch_push_event_p(NAVSWITCH_PUSH)) {
+            if (navswitch_push_event_p(NAVSWITCH_PUSH))
                 gamemode = GAMEMODE_LEVELSET;
-            }
             
         } else if (gamemode == GAMEMODE_LEVELSET) { //setting level of game
             if (choose_game_level(&gamelevel)) {

@@ -24,12 +24,10 @@
  */
 bool check_if_local_lost(Ball_t* ball, Paddle_t paddle);
 
-
 /*
  * Sends the character "L" if player has lost
  */
 void send_loss(void);
-
 
 /*
  * Checks to see if other player has lost, amd hence this player has won

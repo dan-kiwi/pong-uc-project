@@ -26,7 +26,6 @@ bool check_if_local_lost(Ball_t* ball, Paddle_t paddle)
     return false;
 }
 
-
 /*
  * Sends the character LOSS_CHAR if player has lost
  */
@@ -35,7 +34,6 @@ void send_loss (void)
     if (ir_uart_write_ready_p())
         ir_uart_putc(LOSS_CHAR);
 }
-
 
 /*
  * Checks to see if other player has lost, amd hence this player has won
