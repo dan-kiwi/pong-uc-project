@@ -69,7 +69,8 @@ void ballPlayer ()
         } else {
             ball_move(&ball, paddle);
         }
-    
+
+
     }
 }
 
