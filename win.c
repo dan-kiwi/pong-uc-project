@@ -13,6 +13,9 @@
  * Uses the location of the ball and paddle to determine a loss
  * If the ball is at the bounce row but not the paddle the player has lost
  * and so the func returns true
+ * @param Ball_t* ball: address 
+ * @param Paddle_t paddle:
+ * @return bool: if player has lost, false if still in play
  */
 bool check_if_local_lost(Ball_t* ball, Paddle_t paddle)
 {
