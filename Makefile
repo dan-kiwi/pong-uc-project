@@ -1,6 +1,6 @@
 # File:   Makefile
 # Author: Daniel Bishop & Bethany Kaye-Blake
-# Date:   12 Sep 2010
+# Date:   October 2022
 # Descr:  Makefile for game
 
 # Definitions.
