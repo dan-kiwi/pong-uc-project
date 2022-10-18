@@ -27,7 +27,6 @@ void ball_init (Ball_t* ball, bool starting);
  */
 void ball_draw (Ball_t* ball);
 
-void ball_move_row (Ball_t* ball, Paddle_t paddle);
 
 void ball_move_column (Ball_t* ball);
 

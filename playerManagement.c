@@ -74,19 +74,8 @@ void receive_ball (Ball_t* ball, bool* player1, char received)
             ball->column = LEFT_MAX + 1;
         } else if (ball->column == RIGHT_MAX) {
             ball->column = RIGHT_MAX - 1;
-        } else if (ball->right) {
-            ball->column++;
-            //ball is at full right side of the board so direction must be flipped
-            if (ball->column >= RIGHT_MAX) {
-                ball->right = false;
-            }
         } else {
-            ball->column--;
-
-            //ball is at full left side of the board so direction must be flipped
-            if (ball->column <= LEFT_MAX) {
-                ball->right = true;
-            }
+            ball_move_column(ball);
         }
     }
 }
