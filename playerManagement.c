@@ -39,7 +39,7 @@ void send_player (uint8_t gamelevel)
  */
 void send_ball (Ball_t* ball, bool* player1)
 {
-    char to_send = (char) (ball->column << 1 | ball->right);
+    char to_send = (ball->column << 1 | ball->right);
     ir_uart_putc(to_send);
     ball->row = BALL_OFF_SCREEN;
     *player1 = false;
