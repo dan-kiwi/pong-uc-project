@@ -73,8 +73,35 @@ void ball_move_column(Ball_t* ball)
  */
 void ball_move(Ball_t* ball, Paddle_t paddle)
 {
-    ball_move_row(ball, paddle);
-    ball_move_column(ball);
+
+    if (ball->forward)
+        ball->row--;
+    else
+        ball->row++;
+
+    if (ball->right) {
+        ball->column++;
+
+        //ball is at full right side of the board so direction must be flipped
+        if (ball->column >= RIGHT_MAX) {
+            ball->right = false;
+        }
+    } else {
+        ball->column--;
+
+        //ball is at full left side of the board so direction must be flipped
+        if (ball->column <= LEFT_MAX) {
+            ball->right = true;
+        }
+    }
+
+    if (SINGLE_PLAYER && ball->row == 0) {
+        ball->forward = false;
+    }
+    if (ball_at_paddle(ball, paddle)) {
+        ball->forward = true;
+    }
+
 }
 
 /*
