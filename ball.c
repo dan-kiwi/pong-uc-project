@@ -50,16 +50,15 @@ void ball_move_column(Ball_t* ball)
         ball->column++;
 
         //ball is at full right side of the board so direction must be flipped
-        if (ball->column >= RIGHT_MAX) {
+        if (ball->column >= RIGHT_MAX)
             ball->right = false;
-        }
+            
     } else {
         ball->column--;
 
         //ball is at full left side of the board so direction must be flipped
-        if (ball->column <= LEFT_MAX) {
+        if (ball->column <= LEFT_MAX)
             ball->right = true;
-        }
     }
 }
 
@@ -72,16 +71,14 @@ void ball_move_column(Ball_t* ball)
  */
 void ball_move(Ball_t* ball, Paddle_t paddle)
 {
-
     if (ball->forward)
         ball->row--;
     else
         ball->row++;
+    
     ball_move_column(ball);
-    if (ball_at_paddle(ball, paddle)) {
+    if (ball_at_paddle(ball, paddle))
         ball->forward = true;
-    }
-
 }
 
 /*
@@ -92,10 +89,10 @@ void ball_move(Ball_t* ball, Paddle_t paddle)
  */
 bool ball_at_paddle(Ball_t* ball, Paddle_t paddle)
 {
-    if (ball->row == PADDLE_BOUNCE_ROW) {
+    if (ball->row == PADDLE_BOUNCE_ROW)
         if (ball->column == paddle.left || ball->column == paddle.right)
             return true;
-    }
+        
     return false;
 }
 
@@ -106,9 +103,8 @@ bool ball_at_paddle(Ball_t* ball, Paddle_t paddle)
  */
 bool ball_at_end(Ball_t* ball)
 {
-    if (ball->row == BOTTOM_MAX) {
+    if (ball->row == BOTTOM_MAX)
         return true;
-    }
     return false;
 }
 

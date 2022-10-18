@@ -97,36 +97,46 @@ int main (void)
             tinygl_clear();
             paddle_move(&paddle);
             paddle_draw(&paddle);
-            if (player1)
+            
+            if (player1) {
                 ballPlayer();
-            else 
+            } else {
                 ballOpponent(ir_info);
+            }
+            
             gamemode = check_gameover(&ball, paddle, ir_info);
+            
         } else if (opponentStart) { //called when opponent has started
             gamelevel = opponentStart;
             player1 = false;
             init_game();
+            
         } else if (gamemode == GAMEMODE_WAITING) { //waiting to start game
-            if (navswitch_push_event_p(NAVSWITCH_PUSH)) 
+            if (navswitch_push_event_p(NAVSWITCH_PUSH)) {
                 gamemode = GAMEMODE_LEVELSET;
+            }
+            
         } else if (gamemode == GAMEMODE_LEVELSET) { //setting level of game
             if (choose_game_level(&gamelevel)) {
                 player1 = true;
                 send_player(gamelevel);
                 init_game();
             }
+            
         } else if (gamemode == GAMEMODE_LOSS) { //when local computer has lost
             lose_screen();
             gamemode = GAMEMODE_WAITING;
             gamelevel = GAMELEVEL_NOT_SET;
+            
         } else if (gamemode == GAMEMODE_WIN) { //when local computer has won
             win_screen();
             gamemode = GAMEMODE_WAITING;
             gamelevel = GAMELEVEL_NOT_SET;
         }
-        pacer_wait ();
-        navswitch_update ();
-        tinygl_update ();
+        
+        pacer_wait();
+        navswitch_update();
+        tinygl_update();
         counter++;
     }
 }
