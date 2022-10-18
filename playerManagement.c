@@ -7,6 +7,7 @@
 #include "playerManagement.h"
 #include "ir_uart.h"
 #include "game.h"
+#include "ball.h"
 
 #include <stdbool.h>
 
@@ -69,20 +70,7 @@ void receive_ball (Ball_t* ball, bool* player1, char received)
         ball->row = TOP_MAX;
         ball->forward = false;
         *player1 = true;
-//        if (ball->right) {
-//            ball->column++;
-//
-//            //ball is at full right side of the board so direction must be flipped
-//            if (ball->column >= RIGHT_MAX) {
-//                ball->right = false;
-//            }
-//        } else {
-//            ball->column--;
-//
-//            //ball is at full left side of the board so direction must be flipped
-//            if (ball->column <= LEFT_MAX) {
-//                ball->right = true;
-//            }
-//        }
+        ball_move_column(ball);
+
     }
 }

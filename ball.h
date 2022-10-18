@@ -27,6 +27,10 @@ void ball_init (Ball_t* ball, bool starting);
  */
 void ball_draw (Ball_t* ball);
 
+void ball_move_row (Ball_t* ball, Paddle_t paddle);
+
+void ball_move_column (Ball_t* ball);
+
 /*
  * Moves the ball based on two boolean variables in Ball_t
  * Also checks if the ball is hitting the paddle. If so, it reverses the direction
