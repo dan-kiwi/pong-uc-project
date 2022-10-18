@@ -37,35 +37,6 @@ void ball_draw (Ball_t* ball)
     tinygl_draw_point(ball_point, true);
 }
 
-void ball_move_row(Ball_t* ball, Paddle_t paddle)
-{
-    if (ball->forward)
-        ball->row--;
-    else
-        ball->row++;
-    if (ball_at_paddle(ball, paddle)) {
-        ball->forward = true;
-    }
-}
-
-void ball_move_column(Ball_t* ball)
-{
-    if (ball->right) {
-        ball->column++;
-
-        //ball is at full right side of the board so direction must be flipped
-        if (ball->column >= RIGHT_MAX) {
-            ball->right = false;
-        }
-    } else {
-        ball->column--;
-
-        //ball is at full left side of the board so direction must be flipped
-        if (ball->column <= LEFT_MAX) {
-            ball->right = true;
-        }
-    }
-}
 
 /*
  * Moves the ball based on two boolean variables in Ball_t
