@@ -18,6 +18,9 @@
  * Uses the location of the ball and paddle to determine a loss
  * If the ball is at the bounce row but not the paddle the player has lost
  * and so the func returns true
+ * @param Ball_t* ball: address of the ball to be checked
+ * @param Paddle_t paddle: player paddle to be used to check
+ * @return bool: true if player has lost, false if still in play
  */
 bool check_if_local_lost(Ball_t* ball, Paddle_t paddle);
 
@@ -29,15 +32,18 @@ void send_loss(void);
 
 
 /*
- *Checks to see if other player has lost, amd hence this player has won
+ * Checks to see if other player has lost, amd hence this player has won
+ * @param char ir_info: the collected character from the ir received for the current pace loop
+ * @return bool: true if opponent has lost, else return false
  */
 bool check_if_opponent_lost(char ir_info);
 
 /*
  * Check's if the game is over
- * Return zero if game not over
- * Return one for local lost
- * Return two for opponent lost
+ * @param Ball_t* ball: address of the ball to be checked
+ * @param Paddle_t paddle: player paddle to be used to check
+ * @param char ir_info: the collected character from the ir received for the current pace loop
+ * @return uint8_t: zero if game not over, one for local lost, two for opponent lost
  */
 uint8_t check_gameover (Ball_t* ball, Paddle_t paddle, char ir_info);
 
