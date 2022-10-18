@@ -49,7 +49,7 @@ void init_game (void);
 /*
  * Method called when the ball is on this computer
  */
-void ballPlayer (void);
+void ballPlayer (char ir_info);
 
 /*
  * Method called when ball is on opponent's computer
