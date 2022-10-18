@@ -84,7 +84,7 @@ void ball_move(Ball_t* ball, Paddle_t paddle)
 bool ball_at_paddle(Ball_t* ball, Paddle_t paddle)
 {
     if (ball->row == PADDLE_BOUNCE_ROW) {
-        if (ball->column >= paddle.left && ball->column <= paddle.right)
+        if (ball->column == paddle.left || ball->column == paddle.right)
             return true;
     }
     return false;
