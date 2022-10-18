@@ -37,7 +37,7 @@ void init_sys (void)
     navswitch_init();
     ir_uart_init();
     button_init();
-//    welcome_screen();
+    welcome_screen();
     gamemode = GAMEMODE_WAITING;
     gamelevel = GAMELEVEL_NOT_SET;
 }
