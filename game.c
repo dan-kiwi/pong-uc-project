@@ -56,7 +56,7 @@ void init_game(void)
 /*
  * Method called when the ball is on this computer
  */
-void ballPlayer (char ir_info)
+void ballPlayer ()
 {
     ball_draw(&ball);
 
@@ -100,7 +100,7 @@ int main (void)
             paddle_move(&paddle);
             paddle_draw(&paddle);
             if (player1 || SINGLE_PLAYER)
-                ballPlayer(ir_info);
+                ballPlayer();
             else {
                 ballOpponent(ir_info);
             }
