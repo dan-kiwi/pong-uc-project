@@ -12,7 +12,7 @@
 #include <stdint.h>
 #include "game.h"
 
-#define LOSS_CHAR 'L'
+#define LOSS_CHAR 25
 
 /*
  * Uses the location of the ball and paddle to determine a loss

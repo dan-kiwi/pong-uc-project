@@ -63,7 +63,7 @@ char ir_get_char(void)
  */
 void receive_ball (Ball_t* ball, bool* player1, char received)
 {
-    if (received != 127) {
+    if (received >= 0 && received <= 11) {
         ball->right = ~(received & 1);
         ball->column = RIGHT_MAX - (received >> 1);
         ball->row = TOP_MAX;
