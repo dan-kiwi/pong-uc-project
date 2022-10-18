@@ -17,16 +17,20 @@
 
 /*
  * Initialises the paddle
+ * @param Paddle_t* paddle: pointer to the current players paddle
  */
 void paddle_init (Paddle_t* paddle);
 
+
 /*
  * Moves the paddle by incrementing or decrementing the col value
+ * @param Paddle_t* paddle: pointer to the players paddle to be moved
  */
 void paddle_move (Paddle_t* paddle);
 
 /*
  * Draws the paddle using the tinygl files
+ * @param Paddle_t* paddle: pointer to the current players paddle to be drawn
  */
 void paddle_draw (Paddle_t* paddle);
 

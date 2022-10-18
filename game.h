@@ -52,6 +52,7 @@ void ballPlayer (void);
 
 /*
  * Method called when ball is on opponent's computer
+ * @param char ir_info: the collected character from the ir received for the current pace loop
  */
 void ballOpponent (char ir_info);
 
