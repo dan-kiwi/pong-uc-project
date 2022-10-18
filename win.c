@@ -39,7 +39,7 @@ void send_loss (void)
 
 /*
  * Checks to see if other player has lost, amd hence this player has won
- * @param char ir_info: the collected character from the ir received for the current pace loop
+ * @param char received: represents IR info from receiver this cycle
  * @return bool: true if opponent has lost, else return false
  */
 bool check_if_opponent_lost(char ir_info)
@@ -51,7 +51,7 @@ bool check_if_opponent_lost(char ir_info)
  * Check's if the game is over
  * @param Ball_t* ball: address of the ball to be checked
  * @param Paddle_t paddle: player paddle to be used to check
- * @param char ir_info: the collected character from the ir received for the current pace loop
+ * @param char received: represents IR info from receiver this cycle
  * @return uint8_t: zero if game not over, one for local lost, two for opponent lost
  */
 uint8_t check_gameover (Ball_t* ball, Paddle_t paddle, char ir_info)
